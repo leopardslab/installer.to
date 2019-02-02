@@ -2,6 +2,7 @@
   "name": "installer.to",
   "description": "A simple repo of installer scripts",
   "dependencies": {
+    "@google-cloud/storage": "^2.4.1",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "firebase-admin": "~6.5.1",
