@@ -8,4 +8,9 @@ For example, if `hello` is an installer script, you can install it with simply,
 curl https://installer.to/hello | bash
 ```
 
+Try, 
+```
+curl https://installer.to/git | bash
+```
 
+This will install Git on your machine!
