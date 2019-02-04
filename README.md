@@ -14,3 +14,11 @@ curl https://installer.to/git | bash
 ```
 
 This will install Git on your machine!
+
+## Tools list
+
+| Tool    	| Apt-get 	| Yum 	| DNF 	| Apk 	|
+|---------	|---------	|-----	|-----	|-----	|
+| Git     	| 👍  	    | 👍  	| 👍	  | 👍	  |
+| Docker  	| WIP     	| WIP 	| WIP 	| WIP 	|
+| Kubectl 	| WIP     	| WIP 	| WIP 	| WIP 	|
