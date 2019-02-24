@@ -23,6 +23,10 @@ APK_CMD=$(which apk) # apk package manager for Alpine
     gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
     EOF
     sudo yum install -y kubectl
+ elif [ ! -z $APK_CMD ]; then
+    sudo apk add --no-cache curl ca-certificates && sudo apk add --update -t deps curl
+    curl -L https://storage.googleapis.com/kubernetes-release/release/v1.13.3/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl
+    chmod +x /usr/local/bin/kubectl
  else
     echo "Couldn't install package"
     exit 1;
