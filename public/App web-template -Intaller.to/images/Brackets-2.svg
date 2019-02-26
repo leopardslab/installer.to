@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500px" height="563px" viewBox="0 0 500 563" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.1 (72631) - https://sketchapp.com -->
+    <title>Brackets-1 Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M5.00945433,0 C2.2428091,0 0,2.23446755 0,5.00841312 L0,57 L500,57 L500,5.00841312 C500,2.24234293 497.770786,0 494.990546,0 L5.00945433,0 Z" id="path-1"></path>
+        <filter x="-0.2%" y="-1.8%" width="100.4%" height="107.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0.2   0 0 0 0 0.2   0 0 0 0 0.2  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="bracket-2">
+            <g id="Brackets-1-Copy">
+                <rect id="background" fill="#1F1E22" x="0" y="50" width="500" height="513" rx="5"></rect>
+                <g id="Header">
+                    <g id="background">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#38373A" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <g id="Options" transform="translate(9.000000, 9.000000)">
+                        <circle id="object" fill="#EF534A" cx="5.5" cy="5.5" r="5.5"></circle>
+                        <circle id="object" fill="#EDC04A" cx="24.5" cy="5.5" r="5.5"></circle>
+                        <circle id="object" fill="#97D272" cx="43.5" cy="5.5" r="5.5"></circle>
+                    </g>
+                    <text id="Terminal" opacity="0.85" font-family="AndaleMono, Andale Mono" font-size="14" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="216.894531" y="26">Terminal</tspan>
+                    </text>
+                </g>
+                <g id="Content" transform="translate(141.000000, 152.000000)"></g>
+                <g id="Code" transform="translate(7.000000, 81.000000)">
+                    <text id="curl-https://install" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="36" y="11" fill="#FFFFFF">curl </tspan>
+                        <tspan x="72.0058594" y="11" fill="#F59823">https://installer.to</tspan>
+                        <tspan x="216.029297" y="11" fill="#FFFFFF">/git | bash</tspan>
+                    </text>
+                    <g id="Group">
+                        <polygon id="Rectangle" fill="#3A66BD" points="1.77635684e-15 0 21 0 30.0828569 8.5 21.5 17 1.77635684e-15 17"></polygon>
+                        <path d="M18.8955078,8.5 C18.1891241,9.09700819 17.5078158,9.39550781 16.8515625,9.39550781 C16.4687481,9.39550781 15.8854206,9.21777521 15.1015625,8.86230469 C14.2994752,8.50683416 13.7298194,8.32910156 13.3925781,8.32910156 C12.8593723,8.32910156 12.196293,8.64355154 11.4033203,9.27246094 L11.4033203,8.28808594 C12.123376,7.69107774 12.8206346,7.39257812 13.4951172,7.39257812 C13.8870462,7.39257812 14.474931,7.57031072 15.2587891,7.92578125 C16.0426471,8.28125178 16.6009098,8.45898438 16.9335938,8.45898438 C17.4667995,8.45898438 18.1207644,8.14681302 18.8955078,7.52246094 L18.8955078,8.5 Z" id="~" fill="#1F1E22" fill-rule="nonzero"></path>
+                    </g>
+                </g>
+                <g id="Code-Copy" transform="translate(7.000000, 70.000000)" fill="#FFFFFF">
+                    <text id="%-Todal-%-Received-%" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="0" y="51">% Todal	% Received % Xferd Average Speed   	</tspan>
+                    </text>
+                    <text id="Download-Upload" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="178" y="72">Download Upload</tspan>
+                    </text>
+                    <text id="Time-Total" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="294" y="51">Time</tspan>
+                        <tspan x="294" y="69">Total</tspan>
+                    </text>
+                    <text id="Time-Spent" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="344" y="51">Time</tspan>
+                        <tspan x="344" y="69">Spent</tspan>
+                    </text>
+                    <text id="Time-Left" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="394" y="51">Time</tspan>
+                        <tspan x="394" y="69">Left</tspan>
+                    </text>
+                    <text id="Current-Speed" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="440" y="51">Current</tspan>
+                        <tspan x="440" y="69">Speed</tspan>
+                    </text>
+                    <text id="100" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="0" y="95">100</tspan>
+                    </text>
+                    <text id="[sudo]-password-for" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="0" y="115">[sudo] password for david: </tspan>
+                    </text>
+                    <text id="726" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="31" y="95">726</tspan>
+                    </text>
+                    <text id="100" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="62" y="95">100</tspan>
+                    </text>
+                    <text id="726" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="99" y="95">726</tspan>
+                    </text>
+                    <text id="0" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="134" y="95">0</tspan>
+                    </text>
+                    <text id="0-copy" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="177.798828" y="95">0</tspan>
+                    </text>
+                    <text id="1103" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="208" y="95">1103</tspan>
+                    </text>
+                    <text id="0" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="278.798828" y="95">0</tspan>
+                    </text>
+                    <text id="—:—:—" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="290.792969" y="94"> —:—:—</tspan>
+                    </text>
+                    <text id="—:—:—-copy" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="335.792969" y="94"> —:—:—</tspan>
+                    </text>
+                    <text id="—:—:—-copy-3" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="386.792969" y="94"> —:—:—</tspan>
+                    </text>
+                    <text id="1101" font-family="AndaleMono, Andale Mono" font-size="12" font-weight="normal">
+                        <tspan x="442.195312" y="94">1101</tspan>
+                    </text>
+                    <rect id="Rectangle" x="197" y="103" width="7" height="17"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
