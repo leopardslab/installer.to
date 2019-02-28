@@ -15,7 +15,7 @@ APK_CMD=$(which apk) # apk package manager for Alpine
     && wget -q http://dl.google.com/android/repository/tools_r27.0.0-linux.zip -O android-sdk-tools.zip
     && unzip -q android-sdk-tools.zip -d /opt/android-sdk
     && rm -f android-sdk-tools.zip
-    && chmod 777 /opt/android-sdk/*
+    && chmod 755 /opt/android-sdk/
     && echo y | android update sdk -a --no-ui --filter build-tools-25.0.2
  elif [ ! -z $PACMAN_CMD ]; then
     sudo pacman -S --needed base-devel git wget yajl
@@ -36,3 +36,5 @@ APK_CMD=$(which apk) # apk package manager for Alpine
     echo "Couldn't install package"
     exit 1;
  fi
+
+android-sdk --version
