@@ -1,3 +1,6 @@
+
+![vinstaller.to logo](https://raw.githubusercontent.com/leopardslab/installer.to/master/public/branding/assets/png/primary%20logo%20-%20colored.png)
+
 # installer.to
 
 We are a community managed list of installer scripts for popular tools for Linux based OS.
