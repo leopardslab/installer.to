@@ -12,6 +12,7 @@ REPO_URL="https://github.com/leopardslab/dunner"
 API_URL="https://api.github.com/repos/leopardslab/dunner/releases"
 
 initVersion() {
+    echo "Checking from versions available..."
     # Resolve latest version
     if [[ $VERSION == 'latest' ]]; then
         VERSION=$(curl -s ${API_URL}/latest | grep -wo '"tag_name":\ .*' | sed s/'"tag_name":\ "'//g | sed s/'",'//g)
@@ -104,21 +105,27 @@ binInstall() {
     else
         echo "'tar' command not found..."
         echo
-        promptSrcInstall
+        if [[ $1 == '-y' ]]; then
+            installFromSource
+        else
+            promptSrcInstall
+        fi
     fi
 }
 
 initInstall() {
     ARCH=$(uname -m)
-    if [[ $ARCH == 'i386' ]]; then
-        ARCH="386"
-    elif [[ $ARCH == 'x86_64' ]]; then
-        ARCH="amd64"
-    fi
+    OS=$(uname -s)
+    ver=$(echo $VERSION | sed s/v//g)
+    # if [[ $ARCH == 'i386' ]]; then
+    #     ARCH="386"
+    # elif [[ $ARCH == 'x86_64' ]]; then
+    #     ARCH="amd64"
+    # fi
     if [[ $(which dpkg) ]]; then
-        pkg=$(curl -s ${API_URL}/tags/${VERSION} | grep -io "\"name\": \"dunner_${ARCH}\.deb" | sed s/'"name": "'//g)
+        pkg=$(curl -s ${API_URL}/tags/${VERSION} | grep -io "\"name\": \"dunner_${ver}_${OS}_${ARCH}\.deb" | sed s/'"name": "'//g)
         if [[ -z $pkg ]]; then
-            echo "Deb package not found for $ARCH for version $VERSION"
+            echo "Deb package not found for $OS-$ARCH for version $VERSION"
         else
             downloadUrl="${RELEASES_URL}/download/${VERSION}/${pkg}"
             echo "Downloading ${pkg} as dunner.deb..."
@@ -131,7 +138,7 @@ initInstall() {
     fi
 
     if [[ $(which rpm) ]]; then
-        pkg=$(curl -s ${API_URL}/tags/${VERSION} | grep -io "\"name\": \"dunner_${ARCH}\.rpm" | sed s/'"name": "'//g)
+        pkg=$(curl -s ${API_URL}/tags/${VERSION} | grep -io "\"name\": \"dunner_${ver}_${OS}_${ARCH}\.rpm" | sed s/'"name": "'//g)
         if [[ -z $pkg ]]; then
             echo "RPM package not found for $OS-$ARCH for version $VERSION"
         else
@@ -164,4 +171,7 @@ echoConstants() {
 }
 # echoConstants
 initVersion
+if [[ $1 == '-y' ]]; then
+    echo "'-y' argument passed, will install from source if required"
+fi
 initInstall
