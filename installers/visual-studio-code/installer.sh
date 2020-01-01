@@ -27,14 +27,13 @@ APK_CMD=$(which apk) # apk package manager for Alpine
  elif [ ! -z $PACMAN_CMD ]; then
     sudo pacman -Sy
     sudo pacman -S git
-    cd ~/Downloads
-    git clone https://AUR.archlinux.org/visual-studio-code-bin.git
+    git clone https://AUR.archlinux.org/visual-studio-code-bin.git .
     cd visual-studio-code-bin/
     makepkg -s
     sudo pacman -U visual-studio-code-bin-*.pkg.tar.xz
     cd ../ && sudo rm -rfv visual-studio-code-bin/
  elif [ ! -z $APK_CMD ]; then
-    echo "Visual Studio Code does not officially support Alpine Linux. In order to install, you must patch Alpine with glibc and install all apk pre-requisites."
+    echo "Visual Studio Code does not officially support Alpine Linux. In order to install, you must patch Alpine with glibc and install all APK pre-requisites."
  else
     echo "Couldn't install package"
     exit 1;
