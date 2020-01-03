@@ -39,4 +39,4 @@ APK_CMD=$(which apk) # apk package manager for Alpine
     exit 1;
  fi
 
-code
+code -v
