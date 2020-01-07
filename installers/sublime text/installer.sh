@@ -10,8 +10,8 @@
 # Detect the architecture
 if [[ "$(uname -m)" = "x86_64" ]]; then
   ARCHITECTURE="x64"
-else
-  ARCHITECTURE="x32"
+elif [[ "$(uname -m)" = "x86_32" ]]; then
+ ARCHITECTURE="x32"
 fi
 
 
