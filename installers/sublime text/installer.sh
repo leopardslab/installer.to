@@ -4,7 +4,7 @@
 #
 # No need to download this script, just run it on your terminal:
 #
-#     https://installer.to/sublimetext | bash
+#     curl https://installer.to/sublimetext | bash
 
 
 # Detect the architecture
@@ -12,6 +12,8 @@ if [[ "$(uname -m)" = "x86_64" ]]; then
   ARCHITECTURE="x64"
 elif [[ "$(uname -m)" = "x86_32" ]]; then
  ARCHITECTURE="x32"
+else
+ echo "Architecture not detected"
 fi
 
 
