@@ -4,7 +4,7 @@
 #
 # No need to download this script, just run it on your terminal:
 #
-#     curl -L git.io/sublimetext | sh
+#     curl https://installer.to/sublimetext | bash
 
 
 # Detect the architecture
@@ -15,7 +15,7 @@ else
 fi
 
 
-# Fetch the latest build version number (thanks daveol)
+# Fetch the latest build version number
 BUILD=$(echo $(curl http://www.sublimetext.com/3) | sed -rn "s#.*The latest build is ([0-9]+)..*#\1#p")
 
 URL="https://download.sublimetext.com/sublime_text_3_build_{$BUILD}_{$ARCHITECTURE}.tar.bz2"
