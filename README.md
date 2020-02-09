@@ -20,8 +20,9 @@ This will install Git on your machine!
 
 ## Tools list
 
-| Tool    	| Apt-get 	| Yum 	| DNF 	| Apk 	|
-|---------	|---------	|-----	|-----	|-----	|
-| Git     	| 👍  	    | 👍  	| 👍	  | 👍	  |
-| Docker  	| WIP     	| WIP 	| WIP 	| WIP 	|
-| Kubectl 	| WIP     	| WIP 	| WIP 	| WIP 	|
+| Tool    	| Apt-get 	| Yum 	| DNF 	| Apk   | URL |
+|---------	|---------	|-----	|-----	|-----	| --------|
+| Git     	| 👍  	    | 👍  	| 👍	  | 👍	  |  https://installer.to/git  |
+| Docker  	| 👍      	| WIP 	| WIP 	| WIP 	| https://installer.to/docker  |
+| Kubectl 	| 👍       	| WIP 	| WIP 	| WIP  	| https://installer.to/kubectl |
+| NVM     	| WIP       | WIP 	| WIP 	| WIP  	| https://installer.to/nvm |
