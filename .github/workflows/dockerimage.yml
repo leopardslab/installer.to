@@ -33,4 +33,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Get the list of modified files only
-      run: git diff --name-status HEAD master | awk '{if ($1 == "M") print $2}' 
+      run: git diff --name-status HEAD..master | awk '{if ($1 == "M") print $2}' 
