@@ -6,8 +6,9 @@ APT_GET_CMD=$(which apt-get) # apt package manager for Ubuntu & other Debian bas
 PACMAN_CMD=$(which pacman) # pacman package manager for ArchLinux
 APK_CMD=$(which apk) # apk package manager for Alpine
 
+USER="$(id -un 2>/dev/null || true)"
 PREFIX=''
-if [ "$user" != 'root' ]; then
+if [ "$USER" != 'root' ]; then
 	if command_exists sudo; then
 		PREFIX='sudo'
 	else
@@ -20,16 +21,16 @@ if [ "$user" != 'root' ]; then
 fi
 
  if [ ! -z $APT_GET_CMD ]; then
-    PREFIX apt-get update
-    PREFIX apt-get install git
+    $PREFIX apt-get update
+    $PREFIX apt-get install git
  elif [ ! -z $DNF_CMD ]; then
-    PREFIX dnf install git
+    $PREFIX dnf install git
  elif [ ! -z $YUM_CMD ]; then
-    PREFIX yum install git
+    $PREFIX yum install git
  elif [ ! -z $PACMAN_CMD ]; then
     pacman -Sy git
  elif [ ! -z $APK_CMD ]; then
-    PREFIX apk add git
+    $PREFIX apk add git
  else
     echo "Couldn't find an installer matching to this package"
     exit 1;
