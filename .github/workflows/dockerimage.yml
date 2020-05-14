@@ -32,5 +32,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - uses: technote-space/get-diff-action@v1
     - name: Get the list of modified files only
-      run: git diff --name-status HEAD..master | awk '{if ($1 == "M") print $2}' 
+      run: docker run ubuntu bash -c "echo ${{ env.GIT_DIFF }}" 
