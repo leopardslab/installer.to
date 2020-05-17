@@ -14,7 +14,7 @@ if [ "$USER" != 'root' ]; then
 	else
 		cat >&2 <<-'EOF'
 		Error: this installer needs the ability to run commands as root.
-		We are unable to find "sudo"  available to make this happen.
+		We are unable to find "sudo". Make sure its available to make this happen
 		EOF
 		exit 1
 	fi
