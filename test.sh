@@ -11,4 +11,4 @@ done
 CHANGED=$(echo $X | tr ' ' '\n' | sort | uniq | xargs)
 
 echo "Running tests on $CHANGED"
-#shellspec $CHANGED
+shellspec $CHANGED
