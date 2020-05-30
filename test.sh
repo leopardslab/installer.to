@@ -1,4 +1,3 @@
-echo $#
-for word in "$*";
- do echo "$word"; 
+for word in "$@"
+ do echo "$word" 
 done
