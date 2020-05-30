@@ -16,22 +16,22 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run Tests on Alpine Linux
       run: docker run alpine pwd
-      
+
   test-ubuntu:
-    
+
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
     - name: Run Tests on Ubuntu Linux
       run: docker run ubuntu pwd
-      
+
   test-git:
-    
+
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
     - uses: technote-space/get-diff-action@v1
     - name: Get the list of modified files only
-      run: docker run ubuntu bash -c "echo ${{ env.GIT_DIFF }}" 
+      run: docker build -t shellspec . && docker run -v $PWD:/app shellspec bash -c "cd /app && ./test.sh ${{ env.GIT_DIFF }}"
