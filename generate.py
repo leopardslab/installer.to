@@ -1,5 +1,6 @@
 import toml
 import sys
+import os
 
 methods = {
    "apt": "$APT_GET",
@@ -12,7 +13,7 @@ methods = {
 def get_method_case(method):
    return "[ ! -z "+methods[method]+"_CMD ]; then\n"
 
-for path in sys.argv[1:]:
+def generate(path):
 
    installer_toml_path = path+"/installer.toml"
    installer_sh_path = path+"/installer.sh"
@@ -50,3 +51,8 @@ for path in sys.argv[1:]:
 
 
    installer_sh.close()
+
+
+for path in sys.argv[1:]:
+   if os.path.exists(path+'/installer.toml'):
+         generate(path)
