@@ -1,3 +1,4 @@
+
 name: Run tests
 
 on:
@@ -18,4 +19,4 @@ jobs:
     - uses: actions/checkout@v2
     - uses: technote-space/get-diff-action@v1
     - name: Get the list of modified files only
-      run: docker build -t shellspec . && docker run -v $PWD:/app shellspec bash -c "cd /app && ./test.sh ${{ env.GIT_DIFF }}"
+      run: python generate.py ${{ env.GIT_DIFF }} && docker build -t shellspec . && docker run -v $PWD:/app shellspec bash -c "cd /app && ./test.sh ${{ env.GIT_DIFF }}"
