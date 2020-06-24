@@ -1,3 +1,5 @@
+
+
 [apt]
 sh = """
 echo "Installing hello"
@@ -10,11 +12,6 @@ echo "Installing hello"
 echo "Installed hello"
 """
 
-[pacman]
-sh = """
-echo "Installing hello"
-echo "Installed hello"
-"""
 
 [apk]
 sh = """
