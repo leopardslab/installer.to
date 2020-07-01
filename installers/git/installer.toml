@@ -1,12 +1,12 @@
 [apt]
 sh = """
-sudo apt-get update
-sudo apt-get install git
+@sudo apt-get update
+@sudo apt-get install git
 """
 
 [yum]
 sh = """
-sudo yum install git
+@sudo yum install git
 """
 
 [pacman]
@@ -16,10 +16,10 @@ pacman -Sy git
 
 [dnf]
 sh = """
-sudo dnf install git
+@sudo dnf install git
 """
 
 [apk]
 sh = """
-sudo apk add git
+@sudo apk add git
 """

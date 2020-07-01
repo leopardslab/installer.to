@@ -20,6 +20,10 @@ def get_method_case(method):
       logging.error('Unpupported method in the TOML file, method: '+method)
       exit(1)
 
+def parse_line(line):
+    line = line.replace('@sudo', '$SUDO')
+    return line
+
 def generate(path):
 
    installer_toml_path = path+"/installer.toml"
@@ -38,6 +42,21 @@ APT_GET_CMD=$(which apt-get) # apt package manager for Ubuntu & other Debian bas
 PACMAN_CMD=$(which pacman) # pacman package manager for ArchLinux
 APK_CMD=$(which apk) # apk package manager for Alpine
 GIT_CMD=$(which git) # to build from source pulling from git
+SUDO_CMD=$(which sudo) # check if sudo command is there
+
+USER="$(id -un 2>/dev/null || true)"
+SUDO=''
+if [ "$USER" != 'root' ]; then
+	if $SUDO_CMD; then
+		SUDO='sudo'
+	else
+		cat >&2 <<-'EOF'
+		Error: this installer needs the ability to run commands as root.
+		We are unable to find "sudo". Make sure its available to make this happen
+		EOF
+		exit 1
+	fi
+fi
 
 """)
 
@@ -47,7 +66,8 @@ GIT_CMD=$(which git) # to build from source pulling from git
          lines = parsed_toml[section]['sh']
          installer_sh.write(seperator+" "+get_method_case(section))
          for line in lines.split("\n"):
-            installer_sh.write("   "+line+"\n")
+             step = parse_line(line)
+             installer_sh.write("   "+step+"\n")
          seperator = "elif"
 
       installer_sh.write("""
