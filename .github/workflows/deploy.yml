@@ -1,0 +1,50 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Get the list of modified files only
+        uses: technote-space/get-diff-action@v1
+      - name: Generate installers
+        run: pip install toml && python generate.py ${{ env.GIT_DIFF }}
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: installers
+          path: installers
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: installers
+          path: installers
+      - name: Install Dependencies
+        run: cd functions && npm install
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --project installer-to
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Deploy to Google Cloud Bucket
+        uses: actions-hub/gcloud@master
+        env:
+          PROJECT_ID: installer-to
+          APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+        with:
+          args: rsync -r installers gs://installer-to.appspot.com/installers
+          cli: gsutil
