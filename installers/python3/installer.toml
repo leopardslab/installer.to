@@ -1,0 +1,25 @@
+[apt]
+sh = """
+sudo apt-get update
+sudo apt-get install python3
+"""
+
+[yum]
+sh = """
+sudo yum install python3
+"""
+
+[pacman]
+sh = """
+pacman -Sy python3
+"""
+
+[apk]
+sh = """
+sudo apk add python3
+"""
+
+[dnf]
+sh = """
+sudo dnf install python3
+"""

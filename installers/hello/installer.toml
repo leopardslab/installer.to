@@ -1,0 +1,29 @@
+[apt]
+sh = """
+echo "Installing hello"
+echo "Installed hello"
+"""
+
+[yum]
+sh = """
+echo "Installing hello"
+echo "Installed hello"
+"""
+
+[pacman]
+sh = """
+echo "Installing hello"
+echo "Installed hello"
+"""
+
+[apk]
+sh = """
+echo "Installing hello"
+echo "Installed hello"
+"""
+
+[dnf]
+sh = """
+echo "Installing hello"
+echo "Installed hello"
+"""
