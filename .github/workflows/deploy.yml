@@ -39,7 +39,7 @@ jobs:
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       - name: Deploy to Google Cloud Bucket
-      - uses: actions-hub/gcloud@master
+        uses: actions-hub/gcloud@master
         env:
           PROJECT_ID: installer-to
           APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
