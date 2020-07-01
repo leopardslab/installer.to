@@ -35,6 +35,14 @@ jobs:
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
-          args: deploy --only storage
+          args: deploy
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Deploy to Google Cloud Bucket
+      - uses: actions-hub/gcloud@master
+        env:
+          PROJECT_ID: installer-to
+          APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+        with:
+          args: rsync -r installers gs://installer-to/installers
+          cli: gsutil
