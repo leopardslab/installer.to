@@ -46,5 +46,5 @@ jobs:
           PROJECT_ID: installer-to
           APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         with:
-          args: rsync -r installers gs://installer-to/installers
+          args: rsync -r installers gs://installer-to.appspot.com/installers
           cli: gsutil
