@@ -11,8 +11,9 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
-      - name: Get the list of modified files only & Generate installers
+      - name: Get the list of modified files only
         uses: technote-space/get-diff-action@v1
+      - name: Generate installers
         run: pip install toml && python generate.py ${{ env.GIT_DIFF }}
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
