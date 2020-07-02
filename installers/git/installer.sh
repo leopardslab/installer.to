@@ -1,5 +1,6 @@
 #!/bin/sh
       
+CURL_CMD=$(which curl) # curl tool
 YUM_CMD=$(which yum) # yum package manager for RHEL & CentOS
 DNF_CMD=$(which dnf) # dnf package manager for new RHEL & CentOS
 APT_GET_CMD=$(which apt-get) # apt package manager for Ubuntu & other Debian based distributions
@@ -21,8 +22,6 @@ if [ "$USER" != 'root' ]; then
 		exit 1
 	fi
 fi
-
-echo $SUDO
 
 if [ ! -z $APT_GET_CMD ]; then
    $SUDO apt-get update

@@ -5,6 +5,7 @@ import logging
 import errno
 
 methods = {
+   "curl": "$CURL",
    "apt": "$APT_GET",
    "yum": "$YUM",
    "dnf": "$DNF",
@@ -36,6 +37,7 @@ def generate(path):
 
       installer_sh.write("""#!/bin/sh
       
+CURL_CMD=$(which curl) # curl tool
 YUM_CMD=$(which yum) # yum package manager for RHEL & CentOS
 DNF_CMD=$(which dnf) # dnf package manager for new RHEL & CentOS
 APT_GET_CMD=$(which apt-get) # apt package manager for Ubuntu & other Debian based distributions
@@ -47,7 +49,7 @@ SUDO_CMD=$(which sudo) # check if sudo command is there
 USER="$(id -un 2>/dev/null || true)"
 SUDO=''
 if [ "$USER" != 'root' ]; then
-	if $SUDO_CMD; then
+	if [ ! -z $SUDO_CMD ]; then
 		SUDO='sudo'
 	else
 		cat >&2 <<-'EOF'
