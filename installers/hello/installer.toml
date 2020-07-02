@@ -27,3 +27,9 @@ sh = """
 echo "Installing hello"
 echo "Installed hello"
 """
+
+[curl]
+sh = """
+echo "Installing hello"
+echo "Installed hello"
+"""
