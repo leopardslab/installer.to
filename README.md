@@ -26,3 +26,4 @@ This will install Git on your machine!
 | Docker  	| 👍      	| 👍 	| WIP 	| WIP 	| https://installer.to/docker  |
 | Kubectl 	| 👍       	| WIP 	| WIP 	| WIP  	| https://installer.to/kubectl |
 | NVM     	| WIP       | WIP 	| WIP 	| WIP  	| https://installer.to/nvm |
+| Docker Compose     	| 👍       | 👍 	| WIP 	| WIP  	| https://installer.to/docker-compose |
