@@ -15,17 +15,3 @@ sh = """
 @sudo yum install docker-ce docker-ce-cli containerd.io
 """
 
-[pacman]
-sh = """
-pacman -Sy git
-"""
-
-[dnf]
-sh = """
-@sudo dnf install git
-"""
-
-[apk]
-sh = """
-@sudo apk add git
-"""
