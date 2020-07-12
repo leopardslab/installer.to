@@ -22,7 +22,12 @@ def get_method_case(method):
       exit(1)
 
 def parse_line(line):
-    line = line.replace('@sudo', '$SUDO')
+    line = line\
+        .replace('@sudo', '$SUDO')\
+        .replace('@log', 'info')\
+        .replace('@info', 'info')\
+        .replace('@warn', 'warn')\
+        .replace('@error', 'error')
     return line
 
 def generate(path):
@@ -59,6 +64,23 @@ if [ "$USER" != 'root' ]; then
 		exit 1
 	fi
 fi
+
+RESET='\033[0m'          # Red
+RED='\033[0;31m'          # Red
+GREEN='\033[0;32m'        # Green
+YELLOW='\033[0;33m'      # Yellow
+log () {
+ echo "[`date "+%Y.%m.%d-%H:%M:%S%Z"`]$1 $2"
+}
+info () {
+ log "$GREEN INFO$RESET $1"
+}
+warn () {
+ log "$YELLOW WARN$RESET $1"
+}
+error () {
+ log "$RED ERROR$RESET $1"
+}
 
 """)
 
