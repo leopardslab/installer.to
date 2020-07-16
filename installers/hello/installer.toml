@@ -1,35 +1,48 @@
+# Use `sudo` as `@sudo`. This will check for `sudo` command and user type for you.
+# You can add logs like below
+#  @log "This is an info log"
+#  @info "This is an info log"
+#  @warn "This is an warn log"
+#  @error "This is an error log"
+
 [apt]
 sh = """
-echo "Installing hello"
-echo "Installed hello"
+@info "Installing hello"
+@warn "This is only a demo installation"
+@info "Installed hello"
 """
 
 [yum]
 sh = """
-echo "Installing hello"
-echo "Installed hello"
+@info "Installing hello"
+@warn "This is only a demo installation"
+@info "Installed hello"
 """
 
 [pacman]
 sh = """
-echo "Installing hello"
-echo "Installed hello"
+@info "Installing hello"
+@warn "This is only a demo installation"
+@info "Installed hello"
 """
 
 [apk]
 sh = """
-echo "Installing hello"
-echo "Installed hello"
+@info "Installing hello"
+@warn "This is only a demo installation"
+@info "Installed hello"
 """
 
 [dnf]
 sh = """
-echo "Installing hello"
-echo "Installed hello"
+@info "Installing hello"
+@warn "This is only a demo installation"
+@info "Installed hello"
 """
 
 [curl]
 sh = """
-echo "Installing hello"
-echo "Installed hello"
+@info "Installing hello"
+@warn "This is only a demo installation"
+@info "Installed hello"
 """
