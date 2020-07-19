@@ -3,6 +3,9 @@ import sys
 import os
 import logging
 import errno
+import constants
+
+print (constants.CURL_CHECK)
 
 methods = {
    "curl": "$CURL",
@@ -22,7 +25,12 @@ def get_method_case(method):
       exit(1)
 
 def parse_line(line):
-    line = line.replace('@sudo', '$SUDO')
+    line = line\
+        .replace('@sudo', '$SUDO')\
+        .replace('@log', 'info')\
+        .replace('@info', 'info')\
+        .replace('@warn', 'warn')\
+        .replace('@error', 'error')
     return line
 
 def generate(path):
@@ -37,14 +45,14 @@ def generate(path):
 
       installer_sh.write("""#!/bin/sh
       
-CURL_CMD=$(which curl) # curl tool
-YUM_CMD=$(which yum) # yum package manager for RHEL & CentOS
-DNF_CMD=$(which dnf) # dnf package manager for new RHEL & CentOS
-APT_GET_CMD=$(which apt-get) # apt package manager for Ubuntu & other Debian based distributions
-PACMAN_CMD=$(which pacman) # pacman package manager for ArchLinux
-APK_CMD=$(which apk) # apk package manager for Alpine
-GIT_CMD=$(which git) # to build from source pulling from git
-SUDO_CMD=$(which sudo) # check if sudo command is there
+CURL_CMD=$(which curl) 
+YUM_CMD=$(which yum) 
+DNF_CMD=$(which dnf) 
+APT_GET_CMD=$(which apt-get) 
+PACMAN_CMD=$(which pacman) 
+APK_CMD=$(which apk) 
+GIT_CMD=$(which git) 
+SUDO_CMD=$(which sudo) 
 
 USER="$(id -un 2>/dev/null || true)"
 SUDO=''
@@ -59,6 +67,23 @@ if [ "$USER" != 'root' ]; then
 		exit 1
 	fi
 fi
+
+RESET='\033[0m'
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+log () {
+ echo "[`date "+%Y.%m.%d-%H:%M:%S%Z"`]$1 $2"
+}
+info () {
+ log "$GREEN INFO$RESET $1"
+}
+warn () {
+ log "$YELLOW WARN$RESET $1"
+}
+error () {
+ log "$RED ERROR$RESET $1"
+}
 
 """)
 
