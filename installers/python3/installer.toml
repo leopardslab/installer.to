@@ -1,3 +1,7 @@
+name = "Python 3"
+shortname = "python3"
+description = "Python 3"
+
 [apt]
 sh = """
 @sudo apt-get update

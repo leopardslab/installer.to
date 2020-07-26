@@ -41,25 +41,17 @@ error () {
 }
 
 if [ ! -z $APT_GET_CMD ]; then
-   if [  -n "$(uname -a | grep Ubuntu)" ]; then
-       curl -sL https://deb.nodesource.com/setup_12.x | $SUDO -E bash -
-       $SUDO apt-get install -y nodejs
-   else
-       curl -sL https://deb.nodesource.com/setup_12.x | bash -
-       $SUDO apt-get install -y nodejs
-   fi
+   $SUDO apt-get update
+   $SUDO apt-get install apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   $SUDO add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+   $SUDO apt-get update
+   $SUDO apt-get install docker-ce docker-ce-cli containerd.io
    
 elif [ ! -z $YUM_CMD ]; then
-   $SUDO yum install nodejs12
-   
-elif [ ! -z $DNF_CMD ]; then
-   $SUDO dnf install -y gcc-c++ make
-   curl -sL https://rpm.nodesource.com/setup_12.x | $SUDO -E bash -
-   $SUDO dnf install nodejs
-   
-elif [ ! -z $APK_CMD ]; then
-   $SUDO apk update
-   $SUDO apk add nodejs
+   $SUDO yum install -y yum-utils
+   $SUDO yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+   $SUDO yum install docker-ce docker-ce-cli containerd.io
    
 else
    echo "Couldn't install package"

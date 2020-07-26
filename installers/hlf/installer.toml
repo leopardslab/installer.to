@@ -1,6 +1,7 @@
-name = "Git"
-shortname = "git"
-description = "Git SVM"
+name = "Fabric"
+shortname = "hlf"
+description = "Hyperledger Fabric"
+
 
 [apt]
 sh = """

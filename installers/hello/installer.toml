@@ -4,6 +4,9 @@
 #  @info "This is an info log"
 #  @warn "This is an warn log"
 #  @error "This is an error log"
+name = "Hello"
+shortname = "hello"
+description = "This is just a sample tool"
 
 [apt]
 sh = """

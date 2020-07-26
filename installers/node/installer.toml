@@ -1,3 +1,7 @@
+name = "NodeJS"
+shortname = "node"
+description = "NodeJs v12"
+
 [apt]
 sh = """
 if [  -n "$(uname -a | grep Ubuntu)" ]; then
