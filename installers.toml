@@ -26,3 +26,8 @@ installers = "apt,yum,pacman,apk,dnf"
 name = "gCloud"
 description = "CLI tool of GCP"
 installers = "curl"
+
+[docker]
+name = "Docker"
+description = "Docker"
+installers = "apt,yum"
