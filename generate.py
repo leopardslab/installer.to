@@ -3,11 +3,8 @@ import sys
 import os
 import logging
 import errno
-import constants
 import pytablewriter
 import re
-
-print (constants.CURL_CHECK)
 
 methods = {
    "curl": "$CURL",
