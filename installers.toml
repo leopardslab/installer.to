@@ -31,3 +31,8 @@ installers = "curl"
 name = "Docker"
 description = "Docker"
 installers = "apt,yum"
+
+[hlf]
+name = "Fabric"
+description = "Hyperledger Fabric"
+installers = "apt,yum,pacman,dnf,apk"

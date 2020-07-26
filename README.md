@@ -29,5 +29,6 @@ This will install Git on your machine!
 |Nginx   |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/nginx  |
 |gCloud  |No |No |No     |No |No |Yes |https://installer.to/gcloud |
 |Docker  |Yes|Yes|No     |No |No |No  |https://installer.to/docker |
+|Fabric  |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/hlf    |
 
 <!-- end of tools list -->

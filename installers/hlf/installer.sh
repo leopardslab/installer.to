@@ -1,5 +1,5 @@
 #!/bin/sh
-      
+
 CURL_CMD=$(which curl) # curl tool
 YUM_CMD=$(which yum) # yum package manager for RHEL & CentOS
 DNF_CMD=$(which dnf) # dnf package manager for new RHEL & CentOS
@@ -36,7 +36,7 @@ fi
 echo "downloading Fabric........"
 curl -sSL http://bit.ly/2ysbOFE -o bootstrap.sh
 chmod 755 ./bootstrap.sh
-$SUDO bash ./bootstrap.sh 
+$SUDO bash ./bootstrap.sh
 
 # Copying binaries
 $SUDO cp ./fabric-samples/bin/*    /usr/local/bin
