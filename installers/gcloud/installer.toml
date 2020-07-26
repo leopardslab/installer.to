@@ -1,0 +1,8 @@
+name = "gCloud"
+shortname = "gcloud"
+description = "CLI tool of GCP"
+
+[curl]
+sh = """
+curl https://sdk.cloud.google.com | bash
+"""
