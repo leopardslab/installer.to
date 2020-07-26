@@ -1,13 +1,13 @@
 #!/bin/sh
       
-CURL_CMD=$(which curl) # curl tool
-YUM_CMD=$(which yum) # yum package manager for RHEL & CentOS
-DNF_CMD=$(which dnf) # dnf package manager for new RHEL & CentOS
-APT_GET_CMD=$(which apt-get) # apt package manager for Ubuntu & other Debian based distributions
-PACMAN_CMD=$(which pacman) # pacman package manager for ArchLinux
-APK_CMD=$(which apk) # apk package manager for Alpine
-GIT_CMD=$(which git) # to build from source pulling from git
-SUDO_CMD=$(which sudo) # check if sudo command is there
+CURL_CMD=$(which curl) 
+YUM_CMD=$(which yum) 
+DNF_CMD=$(which dnf) 
+APT_GET_CMD=$(which apt-get) 
+PACMAN_CMD=$(which pacman) 
+APK_CMD=$(which apk) 
+GIT_CMD=$(which git) 
+SUDO_CMD=$(which sudo) 
 
 USER="$(id -un 2>/dev/null || true)"
 SUDO=''
@@ -23,26 +23,43 @@ if [ "$USER" != 'root' ]; then
 	fi
 fi
 
+RESET='[0m'
+RED='[0;31m'
+GREEN='[0;32m'
+YELLOW='[0;33m'
+log () {
+ echo "[`date "+%Y.%m.%d-%H:%M:%S%Z"`]$1 $2"
+}
+info () {
+ log "$GREEN INFO$RESET $1"
+}
+warn () {
+ log "$YELLOW WARN$RESET $1"
+}
+error () {
+ log "$RED ERROR$RESET $1"
+}
+
 if [ ! -z $APT_GET_CMD ]; then
    if [  -n "$(uname -a | grep Ubuntu)" ]; then
-       curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-       sudo apt-get install -y nodejs
+       curl -sL https://deb.nodesource.com/setup_12.x | $SUDO -E bash -
+       $SUDO apt-get install -y nodejs
    else
        curl -sL https://deb.nodesource.com/setup_12.x | bash -
-       sudo apt-get install -y nodejs
+       $SUDO apt-get install -y nodejs
    fi
    
 elif [ ! -z $YUM_CMD ]; then
-   sudo yum install nodejs12
+   $SUDO yum install nodejs12
    
 elif [ ! -z $DNF_CMD ]; then
-   sudo dnf install -y gcc-c++ make
-   curl -sL https://rpm.nodesource.com/setup_12.x | sudo -E bash -
-   sudo dnf install nodejs
+   $SUDO dnf install -y gcc-c++ make
+   curl -sL https://rpm.nodesource.com/setup_12.x | $SUDO -E bash -
+   $SUDO dnf install nodejs
    
 elif [ ! -z $APK_CMD ]; then
-   sudo apk update
-   sudo apk add nodejs
+   $SUDO apk update
+   $SUDO apk add nodejs
    
 else
    echo "Couldn't install package"

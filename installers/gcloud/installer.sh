@@ -40,35 +40,8 @@ error () {
  log "$RED ERROR$RESET $1"
 }
 
-if [ ! -z $APT_GET_CMD ]; then
-   info "Installing hello"
-   warn "This is only a demo installation"
-   info "Installed hello"
-   
-elif [ ! -z $YUM_CMD ]; then
-   info "Installing hello"
-   warn "This is only a demo installation"
-   info "Installed hello"
-   
-elif [ ! -z $PACMAN_CMD ]; then
-   info "Installing hello"
-   warn "This is only a demo installation"
-   info "Installed hello"
-   
-elif [ ! -z $APK_CMD ]; then
-   info "Installing hello"
-   warn "This is only a demo installation"
-   info "Installed hello"
-   
-elif [ ! -z $DNF_CMD ]; then
-   info "Installing hello"
-   warn "This is only a demo installation"
-   info "Installed hello"
-   
-elif [ ! -z $CURL_CMD ]; then
-   info "Installing hello"
-   warn "This is only a demo installation"
-   info "Installed hello"
+if [ ! -z $CURL_CMD ]; then
+   curl https://sdk.cloud.google.com | bash
    
 else
    echo "Couldn't install package"

@@ -1,0 +1,38 @@
+[git]
+name = "Git"
+installers = "apt,yum,pacman,dnf,apk"
+description = "Git SVM"
+
+[hello]
+name = "Hello"
+installers = "apt,yum,pacman,apk,dnf,curl"
+description = "This is just a sample tool"
+
+[node]
+name = "NodeJS"
+installers = "apt,yum,dnf,apk"
+
+[python3]
+name = "Python 3"
+description = "Python 3"
+installers = "apt,yum,pacman,apk,dnf"
+
+[nginx]
+name = "Nginx"
+description = "Nginx server"
+installers = "apt,yum,pacman,apk,dnf"
+
+[gcloud]
+name = "gCloud"
+description = "CLI tool of GCP"
+installers = "curl"
+
+[docker]
+name = "Docker"
+description = "Docker"
+installers = "apt,yum"
+
+[hlf]
+name = "Fabric"
+description = "Hyperledger Fabric"
+installers = "curl"

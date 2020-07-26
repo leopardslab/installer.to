@@ -1,12 +1,16 @@
+name = "Python 3"
+shortname = "python3"
+description = "Python 3"
+
 [apt]
 sh = """
-sudo apt-get update
-sudo apt-get install python3
+@sudo apt-get update
+@sudo apt-get install python3
 """
 
 [yum]
 sh = """
-sudo yum install python3
+@sudo yum install python3
 """
 
 [pacman]
@@ -16,10 +20,10 @@ pacman -Sy python3
 
 [apk]
 sh = """
-sudo apk add python3
+@sudo apk add python3
 """
 
 [dnf]
 sh = """
-sudo dnf install python3
+@sudo dnf install python3
 """

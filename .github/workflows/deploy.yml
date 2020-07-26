@@ -15,6 +15,8 @@ jobs:
         uses: technote-space/get-diff-action@v1
       - name: Generate installers
         run: pip install toml && python generate.py ${{ env.GIT_DIFF }}
+      - name: Minify generated installers
+        run: ./minify.sh ${{ env.GIT_DIFF }}
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
@@ -46,5 +48,5 @@ jobs:
           PROJECT_ID: installer-to
           APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         with:
-          args: rsync -r installers gs://installer-to.appspot.com/installers
+          args: rsync -r installers gs://installer-to.appspot.com/
           cli: gsutil

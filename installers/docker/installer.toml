@@ -1,3 +1,7 @@
+name = "Docker"
+shortname = "docker"
+description = "Docker"
+
 [apt]
 sh = """
 @sudo apt-get update

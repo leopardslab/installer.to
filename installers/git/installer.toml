@@ -1,3 +1,7 @@
+name = "Git"
+shortname = "git"
+description = "Git SVM"
+
 [apt]
 sh = """
 @sudo apt-get update
