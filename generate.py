@@ -31,7 +31,7 @@ def update_readme(summary):
         curl = "Yes" if "curl" in installers else "No"
         url = "https://installer.to/"+tool_shortname
         value_matrix.append([name, apt, yum, pacman, apk, dnf, curl, url])
-    print(value_matrix)
+
     writer.value_matrix = value_matrix
     table_md = writer.dumps()
     try:
@@ -46,23 +46,20 @@ def update_readme(summary):
             readme_md.write(readme)
             readme_md.close()
     except Error as e:
-        print(e)
+        logging.error('Error occurred when trying to update README.md, error: '+ e)
 
 
 def update_summary(name, shortname, description, installers):
     try:
         with open("./installers.toml", "r+") as installer_summary:
             summaary = installer_summary.read()
-            print (summaary)
             parsed_summary_toml = toml.loads(summaary)
-            print (parsed_summary_toml)
             if shortname not in parsed_summary_toml:
                 parsed_summary_toml[shortname] = {}
             parsed_summary_toml[shortname]['name'] = name
             parsed_summary_toml[shortname]['name'] = name
             parsed_summary_toml[shortname]['description'] = description
             parsed_summary_toml[shortname]['installers'] = ",".join(installers)
-            print (parsed_summary_toml)
             installer_summary.seek(0)  # sets  point at the beginning of the file
             installer_summary.truncate()  # Clear previous content
             installer_summary.write(toml.dumps(parsed_summary_toml))
@@ -70,8 +67,7 @@ def update_summary(name, shortname, description, installers):
 
             update_readme(parsed_summary_toml)
     except IOError as e:
-        print ("Error", e)
-        pass
+        logging.error('Error occurred when trying to update installers.toml, error: '+ e)
 
 def get_method_case(method):
    if method in methods:
@@ -167,7 +163,6 @@ fi
 
       installer_sh.close()
       update_summary(parsed_toml['name'], parsed_toml['shortname'], parsed_toml['description'], installer_methods)
-      print("installer_methods",installer_methods)
 
    except IOError as x:
       if x.errno == errno.EACCES:
