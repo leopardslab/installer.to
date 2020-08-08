@@ -13,13 +13,18 @@ jobs:
         uses: actions/checkout@master
       - name: Get the list of modified files only
         uses: technote-space/get-diff-action@v1
+        with:
+          PREFIX_FILTER: |
+            installers
       - name: Generate installers, update README.md & installers.toml
         run: |
           pip install toml
           pip install pytablewriter
           python generate.py ${{ env.GIT_DIFF }}
+        if: env.GIT_DIFF
       - name: Minify generated installers
         run: ./minify.sh ${{ env.GIT_DIFF }}
+        if: env.GIT_DIFF
       - name: Create a pull request for README.md & installers.toml updates
         uses: peter-evans/create-pull-request@v3
         with:
@@ -27,11 +32,14 @@ jobs:
           title: Update README.md & installers.toml
           body: Update README.md & installers.toml for the changes to the installer scripts
           branch: update-readme-md-and-installers-toml
+        if: env.GIT_DIFF
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
           name: installers
           path: installers
+        if: env.GIT_DIFF
+
   deploy:
     name: Deploy
     needs: build
