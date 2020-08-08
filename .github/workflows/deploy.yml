@@ -17,6 +17,13 @@ jobs:
         run: pip install toml && python generate.py ${{ env.GIT_DIFF }}
       - name: Minify generated installers
         run: ./minify.sh ${{ env.GIT_DIFF }}
+      - name: Create a pull request for README.md & installers.toml updates
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: update README.md & installers.toml
+          title: Update README.md & installers.toml
+          body: Update README.md & installers.toml for the changes to the installer scripts
+          branch: update-readme-md-and-installers-toml
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
