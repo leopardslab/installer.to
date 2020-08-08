@@ -9,7 +9,6 @@ done
 CHANGED=$(echo $X | tr ' ' '\n' | sort | uniq | xargs)
 
 echo "generating for $CHANGED"
-#shellspec $CHANGED
-#pip install toml
-#pip install pytablewriter
+pip install toml
+pip install pytablewriter
 python generate.py $CHANGED
