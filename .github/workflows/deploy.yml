@@ -17,10 +17,7 @@ jobs:
           PREFIX_FILTER: |
             installers
       - name: Generate installers, update README.md & installers.toml
-        run: |
-          pip install toml
-          pip install pytablewriter
-          python generate.py ${{ env.GIT_DIFF }}
+        run: ./generate.sh ${{ env.GIT_DIFF }}
         if: env.GIT_DIFF
       - name: Minify generated installers
         run: ./minify.sh ${{ env.GIT_DIFF }}
