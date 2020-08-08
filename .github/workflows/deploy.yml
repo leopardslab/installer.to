@@ -13,8 +13,11 @@ jobs:
         uses: actions/checkout@master
       - name: Get the list of modified files only
         uses: technote-space/get-diff-action@v1
-      - name: Generate installers
-        run: pip install toml && python generate.py ${{ env.GIT_DIFF }}
+      - name: Generate installers, update README.md & installers.toml
+        run: |
+          pip install toml
+          pip install pytablewriter
+          python generate.py ${{ env.GIT_DIFF }}
       - name: Minify generated installers
         run: ./minify.sh ${{ env.GIT_DIFF }}
       - name: Create a pull request for README.md & installers.toml updates
