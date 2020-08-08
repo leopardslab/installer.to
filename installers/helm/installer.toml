@@ -1,0 +1,15 @@
+name = "Helm"
+shortname = "helm"
+description = "The package manager for Kubernetes"
+
+
+[curl]
+sh = """
+@info "Downloading Helm"
+@sudo curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+@sudo chmod +x get_helm.sh
+
+@info "Installing"
+@sudo ./get_helm.sh
+@sudo rm ./get_helm.sh
+"""
