@@ -40,7 +40,14 @@ error () {
  log "$RED ERROR$RESET $1"
 }
 
-if [ ! -z $YUM_CMD ]; then
+if [ ! -z $APT_GET_CMD ]; then
+   $SUDO apt-get update && $SUDO apt-get install -y apt-transport-https gnupg2
+   curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | $SUDO apt-key add -
+   echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | $SUDO tee -a /etc/apt/sources.list.d/kubernetes.list
+   $SUDO apt-get update
+   $SUDO apt-get install kubectl
+   
+elif [ ! -z $YUM_CMD ]; then
    cat <<EOF > /etc/yum.repos.d/kubernetes.repo
    [kubernetes]
    name=Kubernetes
@@ -52,12 +59,10 @@ if [ ! -z $YUM_CMD ]; then
    EOF
    yum install -y kubectl
    
-elif [ ! -z $APT_GET_CMD ]; then
-   $SUDO apt-get update && $SUDO apt-get install -y apt-transport-https gnupg2
-   curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | $SUDO apt-key add -
-   echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | $SUDO tee -a /etc/apt/sources.list.d/kubernetes.list
-   $SUDO apt-get update
-   $SUDO apt-get install kubectl
+elif [ ! -z $CURL_CMD ]; then
+   info "Downloading Helm"
+   $SUDO curl -sSL https://storage.googleapis.com/kubernetes-release/release/v1.13.3/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl
+   $SUDO chmod +x /usr/local/bin/kubectl
    
 else
    echo "Couldn't install package"
