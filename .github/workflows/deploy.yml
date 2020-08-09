@@ -61,16 +61,16 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@master
       - name: Get the list of modified installers only
-      uses: technote-space/get-diff-action@v1
-      with:
-        PREFIX_FILTER: |
-          installers
+        uses: technote-space/get-diff-action@v1
+        with:
+          PREFIX_FILTER: |
+            installers
       - name: Download Artifact
+        if: env.GIT_DIFF
         uses: actions/download-artifact@master
         with:
           name: installers
           path: installers
-        if: env.GIT_DIFF
       - name: Install Dependencies
         run: cd functions && npm install
       - name: Deploy to Firebase
