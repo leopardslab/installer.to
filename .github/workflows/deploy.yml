@@ -41,7 +41,7 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: update README.md & installers.toml
-          title: Update installer scrits, README.md & installers.toml
+          title: Update installer scripts, README.md & installers.toml
           body: |
             Update README.md & installers.toml for the changes to the installer scripts.
             This is a generated PR in related to PR ${{ steps.vars.outputs.pr_id }}
