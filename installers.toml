@@ -2,6 +2,11 @@
 installers = "apt,yum,dnf,apk"
 name = "NodeJS"
 
+[kubectl]
+installers = "yum,apt"
+name = "Kubectl"
+description = "kubectl controls the Kubernetes cluster manager"
+
 [git]
 installers = "apt,yum,pacman,dnf,apk"
 name = "Git"
