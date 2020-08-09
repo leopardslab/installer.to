@@ -13,6 +13,11 @@ installers = "apt,yum,pacman,dnf,apk"
 name = "Git"
 description = "Git SVM"
 
+[pip3]
+installers = "dnf,pacman,apt,apk,yum"
+name = "Pip3"
+description = "Pip is the package installer for Python"
+
 [gcloud]
 installers = "curl"
 name = "gCloud"
