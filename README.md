@@ -15,7 +15,7 @@ Try,
 ```
 curl https://installer.to/git | bash
 ```
-__
+
 This will install Git on your machine!
 
 ## Tools list
