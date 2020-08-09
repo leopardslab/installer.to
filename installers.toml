@@ -19,7 +19,7 @@ name = "gCloud"
 description = "CLI tool of GCP"
 
 [nginx]
-installers = "apt,yum,pacman,apk,dnf"
+installers = "dnf,pacman,apt,apk,yum"
 name = "Nginx"
 description = "Nginx server"
 
