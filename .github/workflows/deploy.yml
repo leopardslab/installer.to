@@ -33,7 +33,7 @@ jobs:
         id: vars
         run: |
           echo "The related PR is ${PR}"
-          echo ::set-output name=pr_body::"#${PR}"
+          echo ::set-output name=pr_id::"#${PR}"
         env:
           PR: ${{ steps.findPr.outputs.pr }}
       - name: Create a pull request for README.md & installers.toml updates
@@ -44,8 +44,8 @@ jobs:
           title: Update installer scrits, README.md & installers.toml
           body: |
             Update README.md & installers.toml for the changes to the installer scripts.
-            This is a generated PR in related to PR ${{ steps.vars.outputs.pr_body }}
-          branch: update-readme-md-and-installers-toml
+            This is a generated PR in related to PR ${{ steps.vars.outputs.pr_id }}
+          branch: update-readme-md-and-installers-toml-${{ steps.vars.outputs.pr_id }}
       - name: Archive Production Artifact
         if: env.GIT_DIFF
         uses: actions/upload-artifact@master
