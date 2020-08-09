@@ -11,31 +11,47 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
-      - name: Get the list of modified files only
+      - name: Get the list of modified installers only
         uses: technote-space/get-diff-action@v1
         with:
           PREFIX_FILTER: |
             installers
       - name: Generate installers, update README.md & installers.toml
+        if: env.GIT_DIFF
         run: ./generate.sh ${{ env.GIT_DIFF }}
-        if: env.GIT_DIFF
       - name: Minify generated installers
-        run: ./minify.sh ${{ env.GIT_DIFF }}
         if: env.GIT_DIFF
+        run: ./minify.sh ${{ env.GIT_DIFF }}
+      - name: Find the Related PR
+        if: env.GIT_DIFF
+        uses: jwalton/gh-find-current-pr@v1
+        id: findPr
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Related PR
+        if:  env.GIT_DIFF && success() && steps.findPr.outputs.number
+        id: vars
+        run: |
+          echo "The related PR is ${PR}"
+          echo ::set-output name=pr_body::"#${PR}"
+        env:
+          PR: ${{ steps.findPr.outputs.pr }}
       - name: Create a pull request for README.md & installers.toml updates
+        if: env.GIT_DIFF
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: update README.md & installers.toml
-          title: Update README.md & installers.toml
-          body: Update README.md & installers.toml for the changes to the installer scripts
+          title: Update installer scrits, README.md & installers.toml
+          body: |
+            Update README.md & installers.toml for the changes to the installer scripts.
+            This is a generated PR in related to PR ${{ steps.vars.outputs.pr_body }}
           branch: update-readme-md-and-installers-toml
-        if: env.GIT_DIFF
       - name: Archive Production Artifact
+        if: env.GIT_DIFF
         uses: actions/upload-artifact@master
         with:
           name: installers
           path: installers
-        if: env.GIT_DIFF
 
   deploy:
     name: Deploy
@@ -44,11 +60,17 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
+      - name: Get the list of modified installers only
+      uses: technote-space/get-diff-action@v1
+      with:
+        PREFIX_FILTER: |
+          installers
       - name: Download Artifact
         uses: actions/download-artifact@master
         with:
           name: installers
           path: installers
+        if: env.GIT_DIFF
       - name: Install Dependencies
         run: cd functions && npm install
       - name: Deploy to Firebase
