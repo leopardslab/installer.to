@@ -15,7 +15,7 @@ jobs:
         uses: technote-space/get-diff-action@v1
         with:
           PREFIX_FILTER: |
-            installers
+            installers/
       - name: Generate installers, update README.md & installers.toml
         if: env.GIT_DIFF
         run: ./generate.sh ${{ env.GIT_DIFF }}
