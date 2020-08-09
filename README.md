@@ -23,7 +23,7 @@ This will install Git on your machine!
 |  Tool  |Apt|Yum|Packman|APK|DNF|CURL|            URL             |
 |--------|---|---|-------|---|---|----|----------------------------|
 |NodeJS  |Yes|Yes|No     |Yes|Yes|No  |https://installer.to/node   |
-|Kubectl |Yes|Yes|No     |No |No |No  |https://installer.to/kubectl|
+|Kubectl |Yes|Yes|No     |No |No |Yes |https://installer.to/kubectl|
 |Git     |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/git    |
 |gCloud  |No |No |No     |No |No |Yes |https://installer.to/gcloud |
 |Nginx   |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/nginx  |
