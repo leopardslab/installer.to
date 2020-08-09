@@ -40,26 +40,21 @@ error () {
  log "$RED ERROR$RESET $1"
 }
 
-if [ ! -z $APT_GET_CMD ]; then
-   if [  -n "$(uname -a | grep Ubuntu)" ]; then
-       curl -sL https://deb.nodesource.com/setup_12.x | $SUDO -E bash -
-       $SUDO apt-get install -y nodejs
-   else
-       curl -sL https://deb.nodesource.com/setup_12.x | bash -
-       $SUDO apt-get install -y nodejs
-   fi
-   
-elif [ ! -z $YUM_CMD ]; then
-   $SUDO yum install nodejs12
-   
-elif [ ! -z $DNF_CMD ]; then
+if [ ! -z $DNF_CMD ]; then
    $SUDO dnf install -y gcc-c++ make
    curl -sL https://rpm.nodesource.com/setup_12.x | $SUDO -E bash -
    $SUDO dnf install nodejs
    
+elif [ ! -z $APT_GET_CMD ]; then
+   curl -sL https://deb.nodesource.com/setup_12.x | $SUDO -E bash -
+   $SUDO apt-get install -y nodejs
+   
 elif [ ! -z $APK_CMD ]; then
    $SUDO apk update
    $SUDO apk add nodejs
+   
+elif [ ! -z $YUM_CMD ]; then
+   $SUDO yum install nodejs12
    
 else
    echo "Couldn't install package"

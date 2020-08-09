@@ -1,6 +1,7 @@
 [node]
-installers = "apt,yum,dnf,apk"
+installers = "dnf,apt,apk,yum"
 name = "NodeJS"
+description = "NodeJs v12"
 
 [kubectl]
 installers = "apt,yum,curl"
