@@ -5,13 +5,13 @@ description = "Nginx server"
 
 [apt]
 sh = """
-sudo apt-get update
-sudo apt-get install nginx
+@sudo apt-get update
+@sudo apt-get install nginx
 """
 
 [yum]
 sh = """
-sudo yum install nginx
+@sudo yum install nginx
 """
 
 [pacman]
@@ -21,11 +21,11 @@ sh = """
 
 [apk]
 sh = """
-sudo apk update
-sudo apk add nginx
+@sudo apk update
+@sudo apk add nginx
 """
 
 [dnf]
 sh = """
-sudo dnf install nginx
+@sudo dnf install nginx
 """
