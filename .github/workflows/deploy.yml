@@ -33,19 +33,20 @@ jobs:
         id: vars
         run: |
           echo "The related PR is ${PR}"
-          echo ::set-output name=pr_id::"#${PR}"
+          echo ::set-output name=pr_id::"${PR}"
         env:
           PR: ${{ steps.findPr.outputs.pr }}
       - name: Create a pull request for README.md & installers.toml updates
         if: env.GIT_DIFF
         uses: peter-evans/create-pull-request@v3
         with:
-          commit-message: update README.md & installers.toml
-          title: Update installer scripts, README.md & installers.toml
+          commit-message: Update installer scripts, README.md & installers.toml
+          title: Update installer scripts, README.md & installers.toml for #${{ steps.vars.outputs.pr_id }}
           body: |
-            Update README.md & installers.toml for the changes to the installer scripts.
-            This is a generated PR in related to PR ${{ steps.vars.outputs.pr_id }}
+            Updated installer scripts, `README.md` & `installers.toml` according to the changes done in the `installer.toml`s.
+            This is a automatically generated PR in related to PR #${{ steps.vars.outputs.pr_id }}
           branch: update-readme-md-and-installers-toml-${{ steps.vars.outputs.pr_id }}
+          labels: automated-pr, continious-delivery
       - name: Archive Production Artifact
         if: env.GIT_DIFF
         uses: actions/upload-artifact@master
@@ -64,7 +65,7 @@ jobs:
         uses: technote-space/get-diff-action@v1
         with:
           PREFIX_FILTER: |
-            installers
+            installers/
       - name: Download Artifact
         if: env.GIT_DIFF
         uses: actions/download-artifact@master
