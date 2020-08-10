@@ -25,10 +25,13 @@ This will install Git on your machine!
 |NodeJS  |Yes|Yes|No     |Yes|Yes|No  |https://installer.to/node   |
 |Kubectl |Yes|Yes|No     |No |No |Yes |https://installer.to/kubectl|
 |Git     |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/git    |
+|Pip3    |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/pip3   |
 |gCloud  |No |No |No     |No |No |Yes |https://installer.to/gcloud |
 |Nginx   |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/nginx  |
+|Helm    |No |No |No     |No |No |Yes |https://installer.to/helm   |
 |Fabric  |No |No |No     |No |No |Yes |https://installer.to/hlf    |
 |Docker  |Yes|Yes|No     |No |No |No  |https://installer.to/docker |
+|eksctl  |No |No |No     |No |No |Yes |https://installer.to/eksctl |
 |cTop    |No |No |No     |No |No |Yes |https://installer.to/ctop   |
 |Hello   |Yes|Yes|Yes    |Yes|Yes|Yes |https://installer.to/hello  |
 |Python 3|Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/python3|
