@@ -43,19 +43,18 @@ error () {
 if [ ! -z $CURL_CMD ]; then
    if ! command -v docker
    then
-       warn "docker could not be found"
+       warn "Docker could not be found"
        curl https://installer.to/docker | bash
    else
-       info "docker found"
+       info "Docker found"
    fi
    
-   info "downloading Fabric........"
+   info "Downloading Fabric........"
    curl -sSL http://bit.ly/2ysbOFE -o bootstrap.sh
    chmod 755 ./bootstrap.sh
    $SUDO bash ./bootstrap.sh
    
    $SUDO cp ./fabric-samples/bin/*    /usr/local/bin
-   
    
 else
    echo "Couldn't install package"
