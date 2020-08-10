@@ -15,20 +15,22 @@ Try,
 ```
 curl https://installer.to/git | bash
 ```
-__
+
 This will install Git on your machine!
 
 ## Tools list
 <!-- beginning of tools list -->
 |  Tool  |Apt|Yum|Packman|APK|DNF|CURL|            URL             |
 |--------|---|---|-------|---|---|----|----------------------------|
-|Git     |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/git    |
-|Hello   |Yes|Yes|Yes    |Yes|Yes|Yes |https://installer.to/hello  |
 |NodeJS  |Yes|Yes|No     |Yes|Yes|No  |https://installer.to/node   |
-|Python 3|Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/python3|
-|Nginx   |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/nginx  |
+|Kubectl |Yes|Yes|No     |No |No |Yes |https://installer.to/kubectl|
+|Git     |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/git    |
 |gCloud  |No |No |No     |No |No |Yes |https://installer.to/gcloud |
-|Docker  |Yes|Yes|No     |No |No |No  |https://installer.to/docker |
+|Nginx   |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/nginx  |
 |Fabric  |No |No |No     |No |No |Yes |https://installer.to/hlf    |
+|Docker  |Yes|Yes|No     |No |No |No  |https://installer.to/docker |
+|cTop    |No |No |No     |No |No |Yes |https://installer.to/ctop   |
+|Hello   |Yes|Yes|Yes    |Yes|Yes|Yes |https://installer.to/hello  |
+|Python 3|Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/python3|
 
 <!-- end of tools list -->

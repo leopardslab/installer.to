@@ -1,0 +1,12 @@
+name = "cTop"
+shortname = "ctop"
+description = "Top-like interface for container metrics"
+
+
+[curl]
+sh = """
+@info "Downloading cTop ........"
+@sudo curl -sSL https://github.com/bcicen/ctop/releases/download/v0.7.3/ctop-0.7.3-linux-amd64 -O /usr/local/bin/ctop
+@info "Setting up at /usr/local/bin/ctop"
+@sudo chmod +x /usr/local/bin/ctop
+"""
