@@ -41,20 +41,13 @@ error () {
 }
 
 if [ ! -z $CURL_CMD ]; then
-   if ! command -v docker
-   then
-       warn "Docker could not be found"
-       curl https://installer.to/docker | bash
-   else
-       info "Docker found"
-   fi
+   info "Downloading Helm"
+   $SUDO curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+   $SUDO chmod +x get_helm.sh
    
-   info "Downloading Fabric........"
-   curl -sSL http://bit.ly/2ysbOFE -o bootstrap.sh
-   chmod 755 ./bootstrap.sh
-   $SUDO bash ./bootstrap.sh
-   
-   $SUDO cp ./fabric-samples/bin/*    /usr/local/bin
+   info "Installing"
+   $SUDO ./get_helm.sh
+   $SUDO rm ./get_helm.sh
    
 else
    echo "Couldn't install package"

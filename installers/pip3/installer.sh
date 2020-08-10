@@ -40,21 +40,21 @@ error () {
  log "$RED ERROR$RESET $1"
 }
 
-if [ ! -z $CURL_CMD ]; then
-   if ! command -v docker
-   then
-       warn "Docker could not be found"
-       curl https://installer.to/docker | bash
-   else
-       info "Docker found"
-   fi
+if [ ! -z $DNF_CMD ]; then
+   $SUDO dnf install python3-pip
    
-   info "Downloading Fabric........"
-   curl -sSL http://bit.ly/2ysbOFE -o bootstrap.sh
-   chmod 755 ./bootstrap.sh
-   $SUDO bash ./bootstrap.sh
+elif [ ! -z $PACMAN_CMD ]; then
+   pacman -S python-pip
    
-   $SUDO cp ./fabric-samples/bin/*    /usr/local/bin
+elif [ ! -z $APT_GET_CMD ]; then
+   $SUDO apt-get update
+   $SUDO apt install python3-pip
+   
+elif [ ! -z $APK_CMD ]; then
+   $SUDO apk add py3-pip
+   
+elif [ ! -z $YUM_CMD ]; then
+   $SUDO yum install  python3-pip
    
 else
    echo "Couldn't install package"

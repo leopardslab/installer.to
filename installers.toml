@@ -13,6 +13,11 @@ installers = "apt,yum,pacman,dnf,apk"
 name = "Git"
 description = "Git SVM"
 
+[pip3]
+installers = "dnf,pacman,apt,apk,yum"
+name = "Pip3"
+description = "Pip is the package installer for Python"
+
 [gcloud]
 installers = "curl"
 name = "gCloud"
@@ -23,6 +28,11 @@ installers = "dnf,pacman,apt,apk,yum"
 name = "Nginx"
 description = "Nginx server"
 
+[helm]
+installers = "curl"
+name = "Helm"
+description = "The package manager for Kubernetes"
+
 [hlf]
 installers = "curl"
 name = "Fabric"
@@ -32,6 +42,11 @@ description = "Hyperledger Fabric"
 installers = "apt,yum"
 name = "Docker"
 description = "Docker"
+
+[eksctl]
+installers = "curl"
+name = "eksctl"
+description = "A simple CLI tool for creating clusters on EKS"
 
 [ctop]
 installers = "curl"

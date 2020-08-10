@@ -41,20 +41,11 @@ error () {
 }
 
 if [ ! -z $CURL_CMD ]; then
-   if ! command -v docker
-   then
-       warn "Docker could not be found"
-       curl https://installer.to/docker | bash
-   else
-       info "Docker found"
-   fi
-   
-   info "Downloading Fabric........"
-   curl -sSL http://bit.ly/2ysbOFE -o bootstrap.sh
-   chmod 755 ./bootstrap.sh
-   $SUDO bash ./bootstrap.sh
-   
-   $SUDO cp ./fabric-samples/bin/*    /usr/local/bin
+   info "Downloading eksctl"
+   $SUDO curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+   info "Setting up at /usr/local/bin/eksctl"
+   $SUDO mv /tmp/eksctl /usr/local/bin
+   $SUDO rm /tmp/eksctl
    
 else
    echo "Couldn't install package"
