@@ -1,38 +1,38 @@
+[node]
+installers = "apt,yum,dnf,apk"
+name = "NodeJS"
+
 [git]
-name = "Git"
 installers = "apt,yum,pacman,dnf,apk"
+name = "Git"
 description = "Git SVM"
 
-[hello]
-name = "Hello"
-installers = "apt,yum,pacman,apk,dnf,curl"
-description = "This is just a sample tool"
-
-[node]
-name = "NodeJS"
-installers = "apt,yum,dnf,apk"
-
-[python3]
-name = "Python 3"
-description = "Python 3"
-installers = "apt,yum,pacman,apk,dnf"
-
-[nginx]
-name = "Nginx"
-description = "Nginx server"
-installers = "apt,yum,pacman,apk,dnf"
-
 [gcloud]
+installers = "curl"
 name = "gCloud"
 description = "CLI tool of GCP"
-installers = "curl"
 
-[docker]
-name = "Docker"
-description = "Docker"
-installers = "apt,yum"
+[nginx]
+installers = "apt,yum,pacman,apk,dnf"
+name = "Nginx"
+description = "Nginx server"
 
 [hlf]
+installers = "curl"
 name = "Fabric"
 description = "Hyperledger Fabric"
-installers = "curl"
+
+[docker]
+installers = "apt,yum"
+name = "Docker"
+description = "Docker"
+
+[hello]
+installers = "apt,yum,pacman,apk,dnf,curl"
+name = "Hello"
+description = "This is just a sample tool"
+
+[python3]
+installers = "apt,yum,pacman,apk,dnf"
+name = "Python 3"
+description = "Python 3"
