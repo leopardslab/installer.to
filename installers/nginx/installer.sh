@@ -40,22 +40,22 @@ error () {
  log "$RED ERROR$RESET $1"
 }
 
-if [ ! -z $APT_GET_CMD ]; then
-   sudo apt-get update
-   sudo apt-get install nginx
-   
-elif [ ! -z $YUM_CMD ]; then
-   sudo yum install nginx
+if [ ! -z $DNF_CMD ]; then
+   $SUDO dnf install nginx
    
 elif [ ! -z $PACMAN_CMD ]; then
    $SUDO pacman -S nginx
    
-elif [ ! -z $APK_CMD ]; then
-   sudo apk update
-   sudo apk add nginx
+elif [ ! -z $APT_GET_CMD ]; then
+   $SUDO apt-get update
+   $SUDO apt-get install nginx
    
-elif [ ! -z $DNF_CMD ]; then
-   sudo dnf install nginx
+elif [ ! -z $APK_CMD ]; then
+   $SUDO apk update
+   $SUDO apk add nginx
+   
+elif [ ! -z $YUM_CMD ]; then
+   $SUDO yum install nginx
    
 else
    echo "Couldn't install package"

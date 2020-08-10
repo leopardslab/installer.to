@@ -40,21 +40,11 @@ error () {
  log "$RED ERROR$RESET $1"
 }
 
-if [ ! -z $DNF_CMD ]; then
-   $SUDO dnf install -y gcc-c++ make
-   curl -sL https://rpm.nodesource.com/setup_12.x | $SUDO -E bash -
-   $SUDO dnf install nodejs
-   
-elif [ ! -z $APT_GET_CMD ]; then
-   curl -sL https://deb.nodesource.com/setup_12.x | $SUDO -E bash -
-   $SUDO apt-get install -y nodejs
-   
-elif [ ! -z $APK_CMD ]; then
-   $SUDO apk update
-   $SUDO apk add nodejs
-   
-elif [ ! -z $YUM_CMD ]; then
-   $SUDO yum install nodejs12
+if [ ! -z $CURL_CMD ]; then
+   info "Downloading cTop ........"
+   $SUDO curl -sSL https://github.com/bcicen/ctop/releases/download/v0.7.3/ctop-0.7.3-linux-amd64 -O /usr/local/bin/ctop
+   info "Setting up at /usr/local/bin/ctop"
+   $SUDO chmod +x /usr/local/bin/ctop
    
 else
    echo "Couldn't install package"

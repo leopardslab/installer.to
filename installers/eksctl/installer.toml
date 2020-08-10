@@ -1,0 +1,13 @@
+name = "eksctl"
+shortname = "eksctl"
+description = "A simple CLI tool for creating clusters on EKS"
+
+
+[curl]
+sh = """
+@info "Downloading eksctl"
+@sudo curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+@info "Setting up at /usr/local/bin/eksctl"
+@sudo mv /tmp/eksctl /usr/local/bin
+@sudo rm /tmp/eksctl
+"""

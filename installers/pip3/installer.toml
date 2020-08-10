@@ -1,0 +1,29 @@
+name = "Pip3"
+shortname = "pip3"
+description = "Pip is the package installer for Python"
+
+[apt]
+sh = """
+@sudo apt-get update
+@sudo apt install python3-pip
+"""
+
+[yum]
+sh = """
+@sudo yum install  python3-pip
+"""
+
+[pacman]
+sh = """
+pacman -S python-pip
+"""
+
+[dnf]
+sh = """
+@sudo dnf install python3-pip
+"""
+
+[apk]
+sh = """
+@sudo apk add py3-pip
+"""

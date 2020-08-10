@@ -1,6 +1,12 @@
 [node]
-installers = "apt,yum,dnf,apk"
+installers = "dnf,apt,apk,yum"
 name = "NodeJS"
+description = "NodeJs v12"
+
+[kubectl]
+installers = "apt,yum,curl"
+name = "Kubectl"
+description = "kubectl controls the Kubernetes cluster manager"
 
 [git]
 installers = "apt,yum,pacman,dnf,apk"
@@ -13,7 +19,7 @@ name = "gCloud"
 description = "CLI tool of GCP"
 
 [nginx]
-installers = "apt,yum,pacman,apk,dnf"
+installers = "dnf,pacman,apt,apk,yum"
 name = "Nginx"
 description = "Nginx server"
 
@@ -26,6 +32,11 @@ description = "Hyperledger Fabric"
 installers = "apt,yum"
 name = "Docker"
 description = "Docker"
+
+[ctop]
+installers = "curl"
+name = "cTop"
+description = "Top-like interface for container metrics"
 
 [hello]
 installers = "apt,yum,pacman,apk,dnf,curl"

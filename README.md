@@ -15,7 +15,7 @@ Try,
 ```
 curl https://installer.to/git | bash
 ```
-__
+
 This will install Git on your machine!
 
 ## Tools list
@@ -23,11 +23,13 @@ This will install Git on your machine!
 |  Tool  |Apt|Yum|Packman|APK|DNF|CURL|            URL             |
 |--------|---|---|-------|---|---|----|----------------------------|
 |NodeJS  |Yes|Yes|No     |Yes|Yes|No  |https://installer.to/node   |
+|Kubectl |Yes|Yes|No     |No |No |Yes |https://installer.to/kubectl|
 |Git     |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/git    |
 |gCloud  |No |No |No     |No |No |Yes |https://installer.to/gcloud |
 |Nginx   |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/nginx  |
 |Fabric  |No |No |No     |No |No |Yes |https://installer.to/hlf    |
 |Docker  |Yes|Yes|No     |No |No |No  |https://installer.to/docker |
+|cTop    |No |No |No     |No |No |Yes |https://installer.to/ctop   |
 |Hello   |Yes|Yes|Yes    |Yes|Yes|Yes |https://installer.to/hello  |
 |Python 3|Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/python3|
 
