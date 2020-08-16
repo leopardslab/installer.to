@@ -23,6 +23,11 @@ installers = "curl"
 name = "gCloud"
 description = "CLI tool of GCP"
 
+[yarn]
+installers = "dnf,pacman,apt,apk,yum"
+name = "Yarn"
+description = "Fast, reliable, and secure NodeJS dependency management"
+
 [nginx]
 installers = "dnf,pacman,apt,apk,yum"
 name = "Nginx"
