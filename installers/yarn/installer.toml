@@ -1,0 +1,33 @@
+name = "Yarn"
+shortname = "yarn"
+description = "Fast, reliable, and secure NodeJS dependency management"
+
+[apt]
+sh = """
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | @sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | @sudo tee /etc/apt/sources.list.d/yarn.list
+@sudo apt-get update
+@sudo apt-get install yarn
+"""
+
+[yum]
+sh = """
+curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | @sudo tee /etc/yum.repos.d/yarn.repo
+@sudo yum install yarn
+"""
+
+[pacman]
+sh = """
+pacman -S yarn
+"""
+
+[dnf]
+sh = """
+curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | @sudo tee /etc/yum.repos.d/yarn.repo
+@sudo dnf install yarn
+"""
+
+[apk]
+sh = """
+@sudo apk add yarn
+"""
