@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. ./logger.sh
+
 X=()
 
 for word in "$@"; do
@@ -8,7 +10,7 @@ done
 
 CHANGED=$(echo $X | tr ' ' '\n' | sort | uniq | xargs)
 
-echo "generating for $CHANGED"
+info "Generating for $CHANGED"
 pip install toml
 pip install pytablewriter
 python generate.py $CHANGED
