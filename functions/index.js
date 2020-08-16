@@ -10,12 +10,31 @@ const storage = new Storage();
 const bucket = storage.bucket('installer-to.appspot.com');
 
 app.get('/', (req, res) => {
-  res.json({ status: 'OK' });
+    res.set('Content-Type', 'application/json');
+    res.json({ status: 'OK' });
+});
+
+app.get('/health', (req, res) => {
+    res.set('Content-Type', 'application/json');
+    res.json({ status: 'OK' });
 });
 
 app.get('/:package', (req, res) => {
     try {
-        const file = bucket.file(req.params.package + '/installer.sh');
+        const minParam = req.query.min;
+        const withParam = req.query.with;
+        const fileName = ['installer'];
+
+        if (withParam){
+            fileName.push(withParam);
+        }
+        if (minParam){
+            fileName.push('min');
+        }
+
+        fileName.push('sh');
+        const fileNameString = fileName.join(".");
+        const file = bucket.file(req.params.package + '/'+fileNameString);
         res.set('Content-Type', 'text/plain');
         const readStream = file.createReadStream();
         readStream.pipe(res);
