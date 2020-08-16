@@ -1,6 +1,7 @@
 name = "Yarn"
 shortname = "yarn"
 description = "Fast, reliable, and secure NodeJS dependency management"
+issue = "https://github.com/leopardslab/installer.to/issues/79"
 
 [apt]
 sh = """

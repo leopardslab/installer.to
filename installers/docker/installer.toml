@@ -1,6 +1,7 @@
 name = "Docker"
 shortname = "docker"
 description = "Docker"
+issues = "https://github.com/leopardslab/installer.to/issues/5"
 
 [apt]
 sh = """

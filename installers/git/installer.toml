@@ -1,6 +1,7 @@
 name = "Git"
 shortname = "git"
 description = "Git SVM"
+issue = "https://github.com/leopardslab/installer.to/issues/1"
 
 [apt]
 sh = """
