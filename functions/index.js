@@ -25,12 +25,13 @@ app.get('/:package', (req, res) => {
         const withParam = req.query.with;
         const fileName = ['installer'];
 
-        if (minParam){
-            fileName.push('min');
-        }
         if (withParam){
             fileName.push(withParam);
         }
+        if (minParam){
+            fileName.push('min');
+        }
+
         fileName.push('sh');
         const fileNameString = fileName.join(".");
         const file = bucket.file(req.params.package + '/'+fileNameString);
