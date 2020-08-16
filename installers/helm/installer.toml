@@ -1,7 +1,7 @@
 name = "Helm"
 shortname = "helm"
 description = "The package manager for Kubernetes"
-
+issues = "https://github.com/leopardslab/installer.to/issues/68"
 
 [curl]
 sh = """

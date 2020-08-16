@@ -1,7 +1,7 @@
 name = "Fabric"
 shortname = "hlf"
 description = "Hyperledger Fabric"
-
+issues = ""
 
 [curl]
 sh = """

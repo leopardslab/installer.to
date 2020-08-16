@@ -1,6 +1,7 @@
 name = "Pip3"
 shortname = "pip3"
 description = "Pip is the package installer for Python"
+issues = "https://github.com/leopardslab/installer.to/issues/71"
 
 [apt]
 sh = """
