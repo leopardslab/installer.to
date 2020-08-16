@@ -1,13 +1,4 @@
 #!/bin/sh
-      
-
-CURL_CMD=$(which curl) 
-YUM_CMD=$(which yum) 
-DNF_CMD=$(which dnf) 
-APT_GET_CMD=$(which apt-get) 
-PACMAN_CMD=$(which pacman) 
-APK_CMD=$(which apk) 
-GIT_CMD=$(which git) 
 
 SUDO_CMD=$(which sudo) 
 
@@ -42,23 +33,9 @@ error () {
  log "$RED ERROR$RESET $1"
 }
 
-if [ ! -z $DNF_CMD ]; then
-   $SUDO dnf install python3-pip
-   
-elif [ ! -z $PACMAN_CMD ]; then
-   pacman -S python-pip
-   
-elif [ ! -z $APT_GET_CMD ]; then
-   $SUDO apt-get update
-   $SUDO apt install python3-pip
-   
-elif [ ! -z $APK_CMD ]; then
-   $SUDO apk add py3-pip
-   
-elif [ ! -z $YUM_CMD ]; then
-   $SUDO yum install  python3-pip
-   
-else
-   echo "Couldn't install package"
-   exit 1;
-fi
+info "Downloading eksctl"
+$SUDO curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+info "Setting up at /usr/local/bin/eksctl"
+$SUDO mv /tmp/eksctl /usr/local/bin
+$SUDO rm /tmp/eksctl
+
