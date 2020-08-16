@@ -1,7 +1,7 @@
 name = "Atom"
 shortname = "atom"
 description = "A hackable text editor for the 21st Century"
-issues = "https://github.com/leopardslab/installer.to/issues/35"
+issue = "https://github.com/leopardslab/installer.to/issues/35"
 
 [apt]
 sh = """

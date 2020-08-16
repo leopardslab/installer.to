@@ -1,7 +1,7 @@
 name = "Kubectl"
 shortname = "kubectl"
 description = "kubectl controls the Kubernetes cluster manager"
-issues = "https://github.com/leopardslab/installer.to/issues/4"
+issue = "https://github.com/leopardslab/installer.to/issues/4"
 
 [apt]
 sh = """

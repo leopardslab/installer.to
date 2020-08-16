@@ -1,7 +1,7 @@
 name = "gCloud"
 shortname = "gcloud"
 description = "CLI tool of GCP"
-issues = ""
+issue = ""
 
 [curl]
 sh = """

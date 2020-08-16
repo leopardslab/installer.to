@@ -1,7 +1,7 @@
 name = "NodeJS"
 shortname = "node"
 description = "NodeJs v12"
-issues = "https://github.com/leopardslab/installer.to/issues/29"
+issue = "https://github.com/leopardslab/installer.to/issues/29"
 
 [apt]
 sh = """

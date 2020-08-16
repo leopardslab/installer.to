@@ -1,7 +1,7 @@
 name = "cTop"
 shortname = "ctop"
 description = "Top-like interface for container metrics"
-issues = "https://github.com/leopardslab/installer.to/issues/61"
+issue = "https://github.com/leopardslab/installer.to/issues/61"
 
 [curl]
 sh = """
