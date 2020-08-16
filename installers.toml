@@ -38,6 +38,11 @@ installers = "apt,yum"
 name = "Docker"
 description = "Docker"
 
+[eksctl]
+installers = "curl"
+name = "eksctl"
+description = "A simple CLI tool for creating clusters on EKS"
+
 [ctop]
 installers = "curl"
 name = "cTop"
