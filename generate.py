@@ -151,6 +151,8 @@ def generate_individual_installers(method, lines):
     installer_sh_path = path + "/installer."+method+".sh"
     try:
         with open(installer_sh_path, "w") as installer_sh:
+            installer_sh.write("""#!/bin/sh
+""")
             write_sudo_fix_commands(installer_sh)
             write_logger_commands(installer_sh)
             write_installer_commands(installer_sh, lines)
