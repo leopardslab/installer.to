@@ -28,6 +28,7 @@ This will install Git on your machine!
 |Pip3    |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/pip3   |
 |gCloud  |No |No |No     |No |No |Yes |https://installer.to/gcloud |
 |Nginx   |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/nginx  |
+|Helm    |No |No |No     |No |No |Yes |https://installer.to/helm   |
 |Fabric  |No |No |No     |No |No |Yes |https://installer.to/hlf    |
 |Docker  |Yes|Yes|No     |No |No |No  |https://installer.to/docker |
 |eksctl  |No |No |No     |No |No |Yes |https://installer.to/eksctl |

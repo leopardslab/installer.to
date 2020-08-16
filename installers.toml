@@ -28,6 +28,11 @@ installers = "dnf,pacman,apt,apk,yum"
 name = "Nginx"
 description = "Nginx server"
 
+[helm]
+installers = "curl"
+name = "Helm"
+description = "The package manager for Kubernetes"
+
 [hlf]
 installers = "curl"
 name = "Fabric"
