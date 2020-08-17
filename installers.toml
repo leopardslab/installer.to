@@ -9,7 +9,7 @@ name = "Kubectl"
 description = "kubectl controls the Kubernetes cluster manager"
 
 [git]
-installers = "apt,yum,pacman,dnf,apk"
+installers = "dnf,pacman,apt,apk,yum"
 name = "Git"
 description = "Git SVM"
 
@@ -51,7 +51,7 @@ description = "Hyperledger Fabric"
 [docker]
 installers = "apt,yum"
 name = "Docker"
-description = "Docker"
+description = "Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers"
 
 [eksctl]
 installers = "curl"
@@ -64,11 +64,11 @@ name = "cTop"
 description = "Top-like interface for container metrics"
 
 [hello]
-installers = "apt,yum,pacman,apk,dnf,curl"
+installers = "dnf,pacman,apt,apk,yum,curl"
 name = "Hello"
 description = "This is just a sample tool"
 
 [python3]
-installers = "apt,yum,pacman,apk,dnf"
+installers = "dnf,pacman,apt,apk,yum"
 name = "Python 3"
 description = "Python 3"
