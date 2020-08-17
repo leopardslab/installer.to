@@ -1,7 +1,7 @@
 name = "eksctl"
 shortname = "eksctl"
 description = "A simple CLI tool for creating clusters on EKS"
-
+issue = "https://github.com/leopardslab/installer.to/issues/70"
 
 [curl]
 sh = """

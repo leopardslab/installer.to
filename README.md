@@ -29,6 +29,7 @@ This will install Git on your machine!
 |gCloud  |No |No |No     |No |No |Yes |https://installer.to/gcloud |
 |Yarn    |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/yarn   |
 |Nginx   |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/nginx  |
+|Atom    |Yes|Yes|Yes    |Yes|Yes|No  |https://installer.to/atom   |
 |Helm    |No |No |No     |No |No |Yes |https://installer.to/helm   |
 |Fabric  |No |No |No     |No |No |Yes |https://installer.to/hlf    |
 |Docker  |Yes|Yes|No     |No |No |No  |https://installer.to/docker |

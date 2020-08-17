@@ -33,6 +33,11 @@ installers = "dnf,pacman,apt,apk,yum"
 name = "Nginx"
 description = "Nginx server"
 
+[atom]
+installers = "dnf,pacman,apt,apk,yum"
+name = "Atom"
+description = "A hackable text editor for the 21st Century"
+
 [helm]
 installers = "curl"
 name = "Helm"

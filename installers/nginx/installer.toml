@@ -1,7 +1,7 @@
 name = "Nginx"
 shortname = "nginx"
 description = "Nginx server"
-
+issue = "https://github.com/leopardslab/installer.to/issues/3"
 
 [apt]
 sh = """
