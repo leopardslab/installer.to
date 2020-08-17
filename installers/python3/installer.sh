@@ -1,5 +1,6 @@
 #!/bin/sh
       
+
 CURL_CMD=$(which curl) 
 YUM_CMD=$(which yum) 
 DNF_CMD=$(which dnf) 
@@ -7,6 +8,7 @@ APT_GET_CMD=$(which apt-get)
 PACMAN_CMD=$(which pacman) 
 APK_CMD=$(which apk) 
 GIT_CMD=$(which git) 
+
 SUDO_CMD=$(which sudo) 
 
 USER="$(id -un 2>/dev/null || true)"
@@ -40,21 +42,21 @@ error () {
  log "$RED ERROR$RESET $1"
 }
 
-if [ ! -z $APT_GET_CMD ]; then
-   $SUDO apt-get update
-   $SUDO apt-get install python3
-   
-elif [ ! -z $YUM_CMD ]; then
-   $SUDO yum install python3
+if [ ! -z $DNF_CMD ]; then
+   $SUDO dnf install python3
    
 elif [ ! -z $PACMAN_CMD ]; then
    pacman -Sy python3
    
+elif [ ! -z $APT_GET_CMD ]; then
+   $SUDO apt-get update
+   $SUDO apt-get install python3
+   
 elif [ ! -z $APK_CMD ]; then
    $SUDO apk add python3
    
-elif [ ! -z $DNF_CMD ]; then
-   $SUDO dnf install python3
+elif [ ! -z $YUM_CMD ]; then
+   $SUDO yum install python3
    
 else
    echo "Couldn't install package"

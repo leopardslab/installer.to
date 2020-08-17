@@ -1,5 +1,6 @@
 #!/bin/sh
       
+
 CURL_CMD=$(which curl) 
 YUM_CMD=$(which yum) 
 DNF_CMD=$(which dnf) 
@@ -7,6 +8,7 @@ APT_GET_CMD=$(which apt-get)
 PACMAN_CMD=$(which pacman) 
 APK_CMD=$(which apk) 
 GIT_CMD=$(which git) 
+
 SUDO_CMD=$(which sudo) 
 
 USER="$(id -un 2>/dev/null || true)"
@@ -40,12 +42,7 @@ error () {
  log "$RED ERROR$RESET $1"
 }
 
-if [ ! -z $APT_GET_CMD ]; then
-   info "Installing hello"
-   warn "This is only a demo installation"
-   info "Installed hello"
-   
-elif [ ! -z $YUM_CMD ]; then
+if [ ! -z $DNF_CMD ]; then
    info "Installing hello"
    warn "This is only a demo installation"
    info "Installed hello"
@@ -55,12 +52,17 @@ elif [ ! -z $PACMAN_CMD ]; then
    warn "This is only a demo installation"
    info "Installed hello"
    
+elif [ ! -z $APT_GET_CMD ]; then
+   info "Installing hello"
+   warn "This is only a demo installation"
+   info "Installed hello"
+   
 elif [ ! -z $APK_CMD ]; then
    info "Installing hello"
    warn "This is only a demo installation"
    info "Installed hello"
    
-elif [ ! -z $DNF_CMD ]; then
+elif [ ! -z $YUM_CMD ]; then
    info "Installing hello"
    warn "This is only a demo installation"
    info "Installed hello"

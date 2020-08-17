@@ -1,5 +1,6 @@
 #!/bin/sh
       
+
 CURL_CMD=$(which curl) 
 YUM_CMD=$(which yum) 
 DNF_CMD=$(which dnf) 
@@ -7,6 +8,7 @@ APT_GET_CMD=$(which apt-get)
 PACMAN_CMD=$(which pacman) 
 APK_CMD=$(which apk) 
 GIT_CMD=$(which git) 
+
 SUDO_CMD=$(which sudo) 
 
 USER="$(id -un 2>/dev/null || true)"
