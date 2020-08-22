@@ -9,12 +9,12 @@ on:
 
 jobs:
 
-  build-docker:
+  build-apt-docker:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: technote-space/get-diff-action@v1
-      - name: Build Shellspec test Docker and Publish to GitHub Docker Registry
+      - name: Build Apt Shellspec test Docker and Publish to GitHub Docker Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: docker.pkg.github.com/${{ github.repository }}/shellspec
@@ -22,4 +22,19 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
           dockerfile: ./dockers/apt/Dockerfile
-          tags: "latest"
+          tags: "latest-apt"
+
+  build-apk-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: technote-space/get-diff-action@v1
+      - name: Build Apk Shellspec test Docker and Publish to GitHub Docker Registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: docker.pkg.github.com/${{ github.repository }}/shellspec
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          dockerfile: ./dockers/apk/Dockerfile
+          tags: "latest-apk"
