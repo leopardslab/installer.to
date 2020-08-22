@@ -22,7 +22,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
           dockerfile: ./dockers/apt/Dockerfile
-          tags: "latest-apt"
+          tags: "apt"
 
   build-apk-docker:
     runs-on: ubuntu-latest
@@ -37,7 +37,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
           dockerfile: ./dockers/apk/Dockerfile
-          tags: "latest-apk"
+          tags: "apk"
 
   build-yum-docker:
     runs-on: ubuntu-latest
@@ -52,7 +52,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
           dockerfile: ./dockers/yum/Dockerfile
-          tags: "latest-yum"
+          tags: "yum"
 
   build-pacman-docker:
     runs-on: ubuntu-latest
@@ -67,7 +67,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
           dockerfile: ./dockers/pacman/Dockerfile
-          tags: "latest-pacman"
+          tags: "pacman"
 
   build-dnf-docker:
     runs-on: ubuntu-latest
@@ -82,4 +82,19 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
           dockerfile: ./dockers/dnf/Dockerfile
-          tags: "latest-dnf"
+          tags: "dnf"
+
+  build-curl-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: technote-space/get-diff-action@v1
+      - name: Build cURL Shellspec test Docker and Publish to GitHub Docker Registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: docker.pkg.github.com/${{ github.repository }}/shellspec
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          dockerfile: ./dockers/curl/Dockerfile
+          tags: "curl"
