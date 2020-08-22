@@ -17,7 +17,7 @@ jobs:
       - name: Build Shellspec test Docker and Publish to GitHub Docker Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          name: docker.pkg.github.com/Heshdude/installer.to/shellspec
+          name: docker.pkg.github.com/${{ github.repository }}/shellspec
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
