@@ -14,10 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: technote-space/get-diff-action@v1
-      - name: Build Shellspec test Docker
-        run: |
-          docker build -t shellspec .
-      - name: Publish to Registry
+      - name: Build Shellspec test Docker and Publish to GitHub Docker Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: docker.pkg.github.com/Heshdude/installer.to/shellspec
