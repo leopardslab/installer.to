@@ -18,4 +18,5 @@ jobs:
         run: |
           pip install toml pytablewriter
           python generate.py ${{ env.GIT_DIFF }}
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login https://docker.pkg.github.com -u ${{ github.actor }} --password-stdin
           docker run -v $PWD:/app docker.pkg.github.com/${{ github.repository }}/shellspec:apt bash -c "cd /app && ./test.sh ${{ env.GIT_DIFF }}"
