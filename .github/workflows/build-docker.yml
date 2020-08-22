@@ -38,3 +38,18 @@ jobs:
           registry: docker.pkg.github.com
           dockerfile: ./dockers/apk/Dockerfile
           tags: "latest-apk"
+
+  build-yum-docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: technote-space/get-diff-action@v1
+      - name: Build Yum Shellspec test Docker and Publish to GitHub Docker Registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: docker.pkg.github.com/${{ github.repository }}/shellspec
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          dockerfile: ./dockers/yum/Dockerfile
+          tags: "latest-yum"
