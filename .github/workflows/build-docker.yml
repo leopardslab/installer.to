@@ -21,4 +21,5 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
+          dockerfile: ./dockers/Dockerfile
           tags: "latest"
