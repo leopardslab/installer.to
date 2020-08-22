@@ -18,5 +18,4 @@ jobs:
         run: |
           pip install toml pytablewriter
           python generate.py ${{ env.GIT_DIFF }}
-          docker build -t shellspec .
-          docker run -v $PWD:/app shellspec bash -c "cd /app && ./test.sh ${{ env.GIT_DIFF }}"
+          docker run -v $PWD:/app docker.pkg.github.com/${{ github.repository }}/shellspec:apt bash -c "cd /app && ./test.sh ${{ env.GIT_DIFF }}"
