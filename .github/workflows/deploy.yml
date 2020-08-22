@@ -36,6 +36,13 @@ jobs:
           echo ::set-output name=pr_id::"${PR}"
         env:
           PR: ${{ steps.findPr.outputs.pr }}
+      - name: Notify Gitter channel of creation of a new PR for new installers.
+        id: initial-gitter-notification
+        uses: juztcode/gitter-github-action@v1
+        with:
+          room-id: ${{ secrets.GITTER_ROOM_ID }}
+          token: ${{ secrets.GITTER_TOKEN }}
+          text: Pending
       - name: Create a pull request for README.md & installers.toml updates
         if: env.GIT_DIFF
         uses: peter-evans/create-pull-request@v3
@@ -54,6 +61,13 @@ jobs:
         with:
           name: installers
           path: installers
+      - name: Notify Gitter channel of the new PR created for new installers.
+        uses: juztcode/gitter-github-action@v1
+        with:
+          room-id: ${{ secrets.GITTER_ROOM_ID }}
+          token: ${{ secrets.GITTER_TOKEN }}
+          text: Success
+          message-id: ${{ steps.initial-gitter-notification.outputs.message-id }}
 
   deploy:
     name: Deploy
