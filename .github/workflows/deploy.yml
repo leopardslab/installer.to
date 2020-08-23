@@ -43,7 +43,7 @@ jobs:
         with:
           room-id: ${{ secrets.GITTER_ROOM_ID }}
           token: ${{ secrets.GITTER_TOKEN }}
-          text: Creating a new PR for [the merged PR](https://github.com/${{ github.repository }}/pull/${{ steps.related-pr.outputs.pr_id }}
+          text: Creating a new PR for [the merged PR](https://github.com/${{ github.repository }}/pull/${{ steps.related-pr.outputs.pr_id }})
       - name: Create a pull request for README.md & installers.toml updates
         id: create-pr
         if: env.GIT_DIFF
