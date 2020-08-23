@@ -10,8 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: technote-space/get-diff-action@v1
+      - name: Check if Dockers has changed
+        uses: marceloprado/has-changed-path@v1
+        id: has-changed
+        with:
+          paths: dockers
       - name: Build Apt Shellspec test Docker and Publish to GitHub Docker Registry
+        if: steps.has-changed.outputs.changed == 'true'
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: docker.pkg.github.com/${{ github.repository }}/shellspec
@@ -25,8 +30,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: technote-space/get-diff-action@v1
+      - name: Check if Dockers has changed
+        uses: marceloprado/has-changed-path@v1
+        id: has-changed
+        with:
+          paths: dockers
       - name: Build Apk Shellspec test Docker and Publish to GitHub Docker Registry
+        if: steps.has-changed.outputs.changed == 'true'
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: docker.pkg.github.com/${{ github.repository }}/shellspec
@@ -40,8 +50,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: technote-space/get-diff-action@v1
+      - name: Check if Dockers has changed
+        uses: marceloprado/has-changed-path@v1
+        id: has-changed
+        with:
+          paths: dockers
       - name: Build Yum Shellspec test Docker and Publish to GitHub Docker Registry
+        if: steps.has-changed.outputs.changed == 'true'
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: docker.pkg.github.com/${{ github.repository }}/shellspec
@@ -55,8 +70,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: technote-space/get-diff-action@v1
+      - name: Check if Dockers has changed
+        uses: marceloprado/has-changed-path@v1
+        id: has-changed
+        with:
+          paths: dockers
       - name: Build Pacman Shellspec test Docker and Publish to GitHub Docker Registry
+        if: steps.has-changed.outputs.changed == 'true'
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: docker.pkg.github.com/${{ github.repository }}/shellspec
@@ -70,8 +90,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: technote-space/get-diff-action@v1
+      - name: Check if Dockers has changed
+        uses: marceloprado/has-changed-path@v1
+        id: has-changed
+        with:
+          paths: dockers
       - name: Build DNF Shellspec test Docker and Publish to GitHub Docker Registry
+        if: steps.has-changed.outputs.changed == 'true'
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: docker.pkg.github.com/${{ github.repository }}/shellspec
