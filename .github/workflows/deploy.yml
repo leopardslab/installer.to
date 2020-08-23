@@ -67,7 +67,7 @@ jobs:
         with:
           room-id: ${{ secrets.GITTER_ROOM_ID }}
           token: ${{ secrets.GITTER_TOKEN }}
-          text: Created a (new PR)[https://github.com/${{ github.repository }}/pull/${{ steps.create-pr.outputs.pull-request-number }}"] for the merged PR ${{ steps.related-pr.outputs.pr_id }}
+          text: Created a [new PR](https://github.com/${{ github.repository }}/pull/${{ steps.create-pr.outputs.pull-request-number }}) of installer scripts for the [merged PR](https://github.com/${{ github.repository }}/pull/${{ steps.related-pr.outputs.pr_id }})
           message-id: ${{ steps.initial-gitter-notification.outputs.message-id }}
 
   deploy:
