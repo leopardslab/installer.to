@@ -71,7 +71,7 @@ description = "Top-like interface for container metrics"
 [hello]
 installers = "dnf,pacman,apt,apk,yum,curl"
 name = "Hello"
-description = "This is just a sample tool"
+description = "This is just a sample tool to use as an example"
 
 [python3]
 installers = "dnf,pacman,apt,apk,yum"
