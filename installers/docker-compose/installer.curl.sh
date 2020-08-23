@@ -1,13 +1,4 @@
 #!/bin/sh
-      
-
-CURL_CMD=$(which curl) 
-YUM_CMD=$(which yum) 
-DNF_CMD=$(which dnf) 
-APT_GET_CMD=$(which apt-get) 
-PACMAN_CMD=$(which pacman) 
-APK_CMD=$(which apk) 
-GIT_CMD=$(which git) 
 
 SUDO_CMD=$(which sudo) 
 
@@ -42,11 +33,6 @@ error () {
  log "$RED ERROR$RESET $1"
 }
 
-if [ ! -z $CURL_CMD ]; then
-   $SUDO curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-   $SUDO chmod +x /usr/local/bin/docker-compose
-   
-else
-   echo "Couldn't install package"
-   exit 1;
-fi
+$SUDO curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+$SUDO chmod +x /usr/local/bin/docker-compose
+
