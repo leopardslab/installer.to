@@ -30,7 +30,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Related PR
         if:  env.GIT_DIFF && success() && steps.findPr.outputs.number
-        id: vars
+        id: related-pr
         run: |
           echo "The related PR is ${PR}"
           echo ::set-output name=pr_id::"${PR}"
@@ -42,18 +42,18 @@ jobs:
         with:
           room-id: ${{ secrets.GITTER_ROOM_ID }}
           token: ${{ secrets.GITTER_TOKEN }}
-          text: Pending
+          text: Creating a new PR for the merged PR #${{ steps.related-pr.outputs.pr_id }}
       - name: Create a pull request for README.md & installers.toml updates
         if: env.GIT_DIFF
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: Update installer scripts, README.md & installers.toml
           title: |
-            Update installer scripts, README.md & installers.toml for #${{ steps.vars.outputs.pr_id }}
+            Update installer scripts, README.md & installers.toml for #${{ steps.related-pr.outputs.pr_id }}
           body: |
             Updated installer scripts, `README.md` & `installers.toml` according to the changes done in the `installer.toml`s.
-            This is a automatically generated PR in related to PR #${{ steps.vars.outputs.pr_id }}
-          branch: update-readme-md-and-installers-toml-${{ steps.vars.outputs.pr_id }}
+            This is a automatically generated PR in related to PR #${{ steps.related-pr.outputs.pr_id }}
+          branch: update-readme-md-and-installers-toml-${{ steps.related-pr.outputs.pr_id }}
           labels: automated-pr, continious-delivery
       - name: Archive Production Artifact
         if: env.GIT_DIFF
@@ -66,7 +66,7 @@ jobs:
         with:
           room-id: ${{ secrets.GITTER_ROOM_ID }}
           token: ${{ secrets.GITTER_TOKEN }}
-          text: Success
+          text: Created a new PR for the merged PR #${{ steps.related-pr.outputs.pr_id }}
           message-id: ${{ steps.initial-gitter-notification.outputs.message-id }}
 
   deploy:
