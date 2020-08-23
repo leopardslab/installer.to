@@ -51,7 +51,7 @@ jobs:
         with:
           commit-message: Update installer scripts, README.md & installers.toml
           title: |
-            Update installer scripts, README.md & installers.toml for ${{ steps.related-pr.outputs.pr_id }}
+            Update installer scripts, README.md & installers.toml for #${{ steps.related-pr.outputs.pr_id }}
           body: |
             Updated installer scripts, `README.md` & `installers.toml` according to the changes done in the `installer.toml`s.
             This is a automatically generated PR in related to PR #${{ steps.related-pr.outputs.pr_id }}
