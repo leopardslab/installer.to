@@ -6,7 +6,7 @@
 #  @error "This is an error log"
 name = "Hello"
 shortname = "hello"
-description = "This is just a sample tool"
+description = "This is just a sample tool to use as an example"
 issue = ""
 
 [apt]

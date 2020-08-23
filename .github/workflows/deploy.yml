@@ -22,31 +22,40 @@ jobs:
       - name: Minify generated installers
         if: env.GIT_DIFF
         run: ./minify.sh ${{ env.GIT_DIFF }}
-      - name: Find the Related PR
+      - name: Finding the Related PR
         if: env.GIT_DIFF
         uses: jwalton/gh-find-current-pr@v1
-        id: findPr
+        id: finding-related-pr
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Related PR
-        if:  env.GIT_DIFF && success() && steps.findPr.outputs.number
-        id: vars
+      - name: Found the related PR
+        if:  env.GIT_DIFF && success() && steps.finding-related-pr.outputs.number
+        id: related-pr
         run: |
           echo "The related PR is ${PR}"
           echo ::set-output name=pr_id::"${PR}"
         env:
-          PR: ${{ steps.findPr.outputs.pr }}
+          PR: ${{ steps.finding-related-pr.outputs.pr }}
+      - name: Notify Gitter channel of creation of a new PR for new installers.
+        id: initial-gitter-notification
+        if: env.GIT_DIFF
+        uses: juztcode/gitter-github-action@v1
+        with:
+          room-id: ${{ secrets.GITTER_ROOM_ID }}
+          token: ${{ secrets.GITTER_TOKEN }}
+          text: Creating a new PR for [the merged PR](https://github.com/${{ github.repository }}/pull/${{ steps.related-pr.outputs.pr_id }}
       - name: Create a pull request for README.md & installers.toml updates
+        id: create-pr
         if: env.GIT_DIFF
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: Update installer scripts, README.md & installers.toml
           title: |
-            Update installer scripts, README.md & installers.toml for #${{ steps.vars.outputs.pr_id }}
+            Update installer scripts, README.md & installers.toml for #${{ steps.related-pr.outputs.pr_id }}
           body: |
             Updated installer scripts, `README.md` & `installers.toml` according to the changes done in the `installer.toml`s.
-            This is a automatically generated PR in related to PR #${{ steps.vars.outputs.pr_id }}
-          branch: update-readme-md-and-installers-toml-${{ steps.vars.outputs.pr_id }}
+            This is a automatically generated PR in related to PR #${{ steps.related-pr.outputs.pr_id }}
+          branch: update-readme-md-and-installers-toml-${{ steps.related-pr.outputs.pr_id }}
           labels: automated-pr, continious-delivery
       - name: Archive Production Artifact
         if: env.GIT_DIFF
@@ -54,6 +63,14 @@ jobs:
         with:
           name: installers
           path: installers
+      - name: Notify Gitter channel of the new PR created for new installers.
+        if: env.GIT_DIFF
+        uses: juztcode/gitter-github-action@v1
+        with:
+          room-id: ${{ secrets.GITTER_ROOM_ID }}
+          token: ${{ secrets.GITTER_TOKEN }}
+          text: Created [a new PR](https://github.com/${{ github.repository }}/pull/${{ steps.create-pr.outputs.pull-request-number }}) with installer scripts for [the merged PR](https://github.com/${{ github.repository }}/pull/${{ steps.related-pr.outputs.pr_id }})
+          message-id: ${{ steps.initial-gitter-notification.outputs.message-id }}
 
   deploy:
     name: Deploy
