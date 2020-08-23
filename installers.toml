@@ -18,6 +18,11 @@ installers = "dnf,pacman,apt,apk,yum"
 name = "Pip3"
 description = "Pip is the package installer for Python"
 
+[docker-compose]
+installers = "curl"
+name = "Docker Compose"
+description = "Docker Compose is a tool for defining and running multi-container Docker applications"
+
 [gcloud]
 installers = "curl"
 name = "gCloud"
