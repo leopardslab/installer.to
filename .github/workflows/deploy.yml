@@ -38,6 +38,7 @@ jobs:
           PR: ${{ steps.finding-related-pr.outputs.pr }}
       - name: Notify Gitter channel of creation of a new PR for new installers.
         id: initial-gitter-notification
+        if: env.GIT_DIFF
         uses: juztcode/gitter-github-action@v1
         with:
           room-id: ${{ secrets.GITTER_ROOM_ID }}
@@ -63,6 +64,7 @@ jobs:
           name: installers
           path: installers
       - name: Notify Gitter channel of the new PR created for new installers.
+        if: env.GIT_DIFF
         uses: juztcode/gitter-github-action@v1
         with:
           room-id: ${{ secrets.GITTER_ROOM_ID }}
