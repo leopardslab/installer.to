@@ -1,6 +1,6 @@
 name = "Docker Compose"
 shortname = "docker-compose"
-description = "Compose is a tool for defining and running multi-container Docker applications"
+description = "Docker Compose is a tool for defining and running multi-container Docker applications"
 issue = ""
 
 [curl]
