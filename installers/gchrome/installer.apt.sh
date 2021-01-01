@@ -33,5 +33,6 @@ error () {
  log "$RED ERROR$RESET $1"
 }
 
-$SUDO apk add python3
+$SUDO apt-get update
+$SUDO apt-get install python3
 

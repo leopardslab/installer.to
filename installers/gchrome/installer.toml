@@ -1,0 +1,30 @@
+name = "Python 3"
+shortname = "python3"
+description = "Python 3"
+issue = "https://github.com/leopardslab/installer.to/issues/37"
+
+[apt]
+sh = """
+@sudo apt-get update
+@sudo apt-get install python3
+"""
+
+[yum]
+sh = """
+@sudo yum install python3
+"""
+
+[pacman]
+sh = """
+pacman -Sy python3
+"""
+
+[apk]
+sh = """
+@sudo apk add python3
+"""
+
+[dnf]
+sh = """
+@sudo dnf install python3
+"""

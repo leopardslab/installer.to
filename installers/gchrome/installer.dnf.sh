@@ -33,5 +33,5 @@ error () {
  log "$RED ERROR$RESET $1"
 }
 
-$SUDO apk add python3
+$SUDO dnf install python3
 
