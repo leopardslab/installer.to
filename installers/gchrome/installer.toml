@@ -1,7 +1,7 @@
 name = "Google chrome"
 shortname = "gchrome"
 description = "Chrome browser installer"
-issue = ""
+issue = "https://github.com/leopardslab/installer.to/issues/96"
 
 
 
