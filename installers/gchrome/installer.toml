@@ -1,19 +1,20 @@
-name = "gchrome"
+name = "Gchrome"
 shortname = "gchrome"
 description = "Chrome browser installer"
 issue = ""
 
 [yum]
 sh = """
+@sudo yum install -y yum-utils
 @sudo apt-get update && $SUDO apt-get install 
 @sudo apt install wget 
-@sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 @sudo yum install ./google-chrome-stable_current_*.rpm
 """
 
 [curl]
 sh = """
-@sudo curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 @sudo dpkg -i google-chrome-stable_current_amd64.deb
 """
 
