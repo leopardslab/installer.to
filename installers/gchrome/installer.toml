@@ -1,30 +1,22 @@
-name = "Python 3"
-shortname = "python3"
-description = "Python 3"
-issue = "https://github.com/leopardslab/installer.to/issues/37"
+name = "Google chrome"
+shortname = "gchrome"
+description = "Chrome browser"
+issue = ""
 
-[apt]
-sh = """
-@sudo apt-get update
-@sudo apt-get install python3
-"""
+
 
 [yum]
 sh = """
-@sudo yum install python3
+@sudo apt-get update && $SUDO apt-get install 
+@sudo apt install wget 
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+@sudo yum install ./google-chrome-stable_current_*.rpm
+
 """
 
-[pacman]
+[curl]
 sh = """
-pacman -Sy python3
+@sudo curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+@sudo dpkg -i google-chrome-stable_current_amd64.deb
 """
 
-[apk]
-sh = """
-@sudo apk add python3
-"""
-
-[dnf]
-sh = """
-@sudo dnf install python3
-"""
