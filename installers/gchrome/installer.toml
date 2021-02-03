@@ -1,0 +1,12 @@
+name = "Google-Chrome"
+shortname = "gchrome"
+description = "gchrome installer"
+issue = ""
+
+[apt]
+sh = """
+@sudo apt-get update
+@sudo apt-get install wget
+wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.17.2.tar.xz
+@sudo apt install ./google-chrome-stable_current_amd64.deb
+"""
